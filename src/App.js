@@ -17,8 +17,8 @@ function App() {
   
   return <div className='App'>
   
-  <TabContainer allData={countries}/>
-  </div>
+            <TabContainer allData={countries}/>
+      </div>
 }
 
 export default App
