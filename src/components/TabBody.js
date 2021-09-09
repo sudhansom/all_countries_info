@@ -4,12 +4,13 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 
 function TabBody({allData}) {
+    let clr = "gray";
     console.log('AllData Body:',allData)
     return (
         <TableBody>
         {
-            allData.map((item)=>(
-            <TableRow>
+            allData.map((item, index)=>(   
+            <TableRow bgColor={index%2===0?"gray":"white"}>
             <TableCell><img width="100px" height="50px" src={item.flag}></img></TableCell>
             <TableCell> <a href="#">{item.name}</a> </TableCell>
             <TableCell>{item.population}</TableCell>
