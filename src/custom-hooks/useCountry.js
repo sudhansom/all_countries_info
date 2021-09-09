@@ -7,10 +7,12 @@ const useCountry = (url)=>{
         const fetchData = async()=>{
             try{
                 const result = await fetch(url).then(response=>response.json());
-                setData(result) // sets data = result   
+                setData(result) // sets data = result  
+                setError("") 
             }
             catch(err){
                 setError(err)
+                setData([])
             }
         }
         fetchData()
