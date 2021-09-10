@@ -8,10 +8,10 @@ const useCountry = (url)=>{
             try{
                 const result = await fetch(url).then(response=>response.json());
                 setData(result) // sets data = result  
-                setError("") 
+                setError("no error") 
             }
             catch(err){
-                setError(err)
+                setError('error while fetching data')
                 setData([])
             }
         }

@@ -3,7 +3,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TabCell from './TabCell';
 
 function TabRow() {
-    const headData=['Flag', 'Country', 'Population', 'Region', 'Language', 'Area (sq km)']
+    const headData=['Flag', 'Country', 'Population', 'Region', 'Language', 'Area (sq. km)']
     return (
         <TableRow>
             {

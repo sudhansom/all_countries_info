@@ -1,8 +1,8 @@
 import React from 'react'
 import TableContainer from '@material-ui/core/TableContainer';
-import Ttable from './Ttable';
+import Ttable from '../components/allCountries/Ttable'
 
-function TabContainer({allData}) {
+function HomePage({allData}) {
     console.log("Container Data:", allData)
     return (
         <TableContainer>
@@ -11,4 +11,4 @@ function TabContainer({allData}) {
     )
 }
 
-export default TabContainer
+export default HomePage
