@@ -14,7 +14,7 @@ function CountryPage() {
 
     return (
         <div>
-            <Image country={country}/>
+            <Image image={country}/>
             <Details countryName={country}/>
         </div>
     )

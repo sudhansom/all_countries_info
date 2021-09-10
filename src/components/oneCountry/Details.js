@@ -1,16 +1,20 @@
 import React from 'react'
 
-function Details({countryName}) {
-    
+function Details({ countryName }) {
+  if (countryName.length > 0) {
+    const [country] = countryName
     return (
-        <div>
-            <h1>{countryName.name}</h1>
-            <h2>Region:{countryName.region}</h2>
-            <h3>Population : {countryName.population}</h3>
-            <h4>Area : {countryName.area}</h4>
-            <a href="/">Back</a>
-        </div>
+      <div>
+        <h1>{country.name}</h1>
+        <h2>Region:{country.region}</h2>
+        <h3>Population : {country.population}</h3>
+        <h4>Area : {country.area}</h4>
+        <a href='/'>Back</a>
+      </div>
     )
+  }
+
+  return <p>Loading</p>
 }
 
 export default Details
