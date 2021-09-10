@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Image({image}) {
+function Image({countryImage}) {
     
     return (
         <div>
-            <img width="300px" height="300px" src={image} alt="image to flag"></img>
+            <img width="300px" height="300px" src={countryImage.flag} alt="image to flag"></img>
         </div>
     )
 }

@@ -14,7 +14,7 @@ function CountryPage() {
 
     return (
         <div>
-            <Image image={country[0].flag}/>
+            <Image country={country}/>
             <Details countryName={country}/>
         </div>
     )
