@@ -13,7 +13,7 @@ function CountryPage() {
   console.log('App:-',country)
 
     return (
-        <div>
+        <div className="country">
             <Image image={country}/>
             <Details countryName={country}/>
         </div>

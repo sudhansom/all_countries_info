@@ -5,7 +5,7 @@ import TabCell from './TabCell';
 function TabRow() {
     const headData=['Flag', 'Country', 'Population', 'Region', 'Language', 'Area (sq. km)']
     return (
-        <TableRow>
+        <TableRow  bgColor="lightgreen">
             {
                 headData.map(elem=>{return <TabCell name={elem}/>})
             }

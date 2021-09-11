@@ -1,38 +1,50 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.country {
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid rgb(0, 17, 255);
+  background: url("https://images.unsplash.com/photo-1618588507085-c79565432917?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1544&q=80")
+    no-repeat center/cover;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.details {
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(7, 4, 168, 0.2);
+  color: rgb(245, 245, 248);
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
 }
-
-.App-link {
-  color: #61dafb;
+.countryImage {
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgb(7, 4, 168);
+  margin: 3em auto;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.back {
+  color: rgb(242, 242, 247);
+  font-size: 2em;
+  text-shadow: 1em;
+  align-self: flex-end;
+  text-decoration: none;
+}
+.back:hover {
+  font-size: 3em;
+  color: blueviolet;
+}
+.headerRow {
+  font-size: 2em;
+}
+.navbar {
+  height: 8vh;
+  width: 100vw;
+  background-color: rgb(91, 122, 209);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.theme:hover {
+  cursor: pointer;
+  text: "click to change theme";
 }

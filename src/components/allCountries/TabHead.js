@@ -4,8 +4,8 @@ import TabRow from './TabRow';
 
 function TabHead() {
     return (
-        <TableHead bgColor="lightgreen" textColor="red">
-            <TabRow />
+        <TableHead>
+            <TabRow  />
         </TableHead>
     )
 }
