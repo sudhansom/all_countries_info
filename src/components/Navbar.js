@@ -22,7 +22,7 @@ function Navbar({setCountries, countries, theme,setTheme}) {
                 <button>Search</button>
             </div>
             <div>
-                <p>Profile</p>
+                <p><a href={"cart"}><img width="80px" height="50px" src={"../images/cart.png"} alt="no image"></img></a></p>
             </div>
         </div>
         

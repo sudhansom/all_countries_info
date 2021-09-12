@@ -7,7 +7,8 @@ const useCountry = (url)=>{
         const fetchData = async()=>{
             try{
                 const result = await fetch(url).then(response=>response.json());
-                setData(result) // sets data = result  
+                setData(result) // sets data = result 
+                console.log('onCountry in hooks:', result) 
                 setError("no error") 
             }
             catch(err){

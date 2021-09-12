@@ -3,8 +3,22 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 
-function TabBody({allData, theme, setTheme}) {
+function TabBody({cart, setCart, allData, theme, setTheme}) {
     console.log('AllData Body:',allData)
+    const changeCart = (nameC)=>{
+        console.log('Buy items:-',cart)
+        const addToCart = allData.find(elem=>elem.name===nameC)
+        if(addToCart.name in cart){
+            let x = cart[addToCart.name][0]
+                x += 1
+            cart[addToCart.name] = [x, addToCart.flag]
+        }
+        else{
+            cart[addToCart.name] = [1, addToCart.flag]
+        }
+        setCart(cart)
+    }
+    console.log(cart)
     return (
         <TableBody>
         {
@@ -16,6 +30,7 @@ function TabBody({allData, theme, setTheme}) {
             <TableCell>{item.region}</TableCell>
             <TableCell>{item.languages[0]['name']}</TableCell>
             <TableCell>{item.area}</TableCell>
+            <TableCell><button onClick={()=>{changeCart(item.name)}}>Buy</button></TableCell>
             </TableRow>))
         }
             
