@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
 
-function Navbar({setCountries, countries, theme,setTheme}) {
+function Navbar({ total, cart, setCountries, countries, theme,setTheme}) {
     const [input, setInput] = useState('')
+    
     const searchField = (text)=>{
         setInput(text)
     }
+    
+    
+    
     const changeTheme = ()=>{
         setTheme(theme[0]==='#ccd7e8'?['#97b2db','#a7f2ed']:['#ccd7e8','#f5f4c9'])
         console.log("theme chamged", theme)
@@ -22,7 +26,7 @@ function Navbar({setCountries, countries, theme,setTheme}) {
                 <button>Search</button>
             </div>
             <div>
-                <p><a href={"cart"}><img width="80px" height="50px" src={"../images/cart.png"} alt="no image"></img></a></p>
+                <p><a href={"cart"}>{total}<img width="80px" height="50px" src={"../images/cart.png"} alt="no image"></img></a></p>
             </div>
         </div>
         

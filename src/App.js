@@ -16,16 +16,17 @@ function App() {
   const [theme, setTheme] = useState(['#f0e6e6', 'f5f0f0'])
   const [error, countries] = useCountries(url, setCountries);
   const [cart, setCart] = useState({});
+  const [total, setTotal] = useState(0)
 
 
 
     return <div className='App'>
         <div>
-            <Navbar theme={theme} setTheme={setTheme} setCountries={setCountries} countries={countries}/>
+            <Navbar total={total} cart={cart} theme={theme} setTheme={setTheme} setCountries={setCountries} countries={countries}/>
         </div>
         <Switch>
             <Route exact path="/">
-            <HomePage cart={cart} setCart={setCart} theme={theme} setTheme={setTheme} allData={searchCountries}/>
+            <HomePage total={total} setTotal={setTotal} cart={cart} setCart={setCart} theme={theme} setTheme={setTheme} allData={searchCountries}/>
             </Route>
             <Route exact path="/:countryName">
             <CountryPage />

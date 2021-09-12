@@ -3,7 +3,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 
-function TabBody({cart, setCart, allData, theme, setTheme}) {
+function TabBody({total, setTotal, cart, setCart, allData, theme, setTheme}) {
     console.log('AllData Body:',allData)
     const changeCart = (nameC)=>{
         console.log('Buy items:-',cart)
@@ -18,6 +18,11 @@ function TabBody({cart, setCart, allData, theme, setTheme}) {
         }
         setCart(cart)
     }
+    const getTotal = () =>{
+        for(const item in cart){
+            setTotal(total + cart[item][0])
+        }
+    }
     console.log(cart)
     return (
         <TableBody>
@@ -30,7 +35,7 @@ function TabBody({cart, setCart, allData, theme, setTheme}) {
             <TableCell>{item.region}</TableCell>
             <TableCell>{item.languages[0]['name']}</TableCell>
             <TableCell>{item.area}</TableCell>
-            <TableCell><button onClick={()=>{changeCart(item.name)}}>Buy</button></TableCell>
+            <TableCell><button className="btn" onClick={()=>{changeCart(item.name); getTotal()}}>Buy</button></TableCell>
             </TableRow>))
         }
             
