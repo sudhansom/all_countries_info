@@ -27,8 +27,10 @@ function Navbar({ total, cart, setCountries, countries, theme,setTheme}) {
                 <input type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value); filterCountries(e.target.value)}}></input>
                 <button>Search</button>
             </div>
-            <div>
-                <p><Link to={"/cart"}>{total}<img width="80px" height="50px" src={cartImage} alt="no image"></img></Link></p>
+            <div  className="cartImage">
+                <Link  to={"/cart"}>
+                <p><sup className="cartValue">{total}</sup></p>
+                </Link>
             </div>
         </div>
         

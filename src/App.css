@@ -44,6 +44,12 @@
   justify-content: space-around;
   align-items: center;
 }
+.cartImage {
+  height: 7vh;
+  width: 5vw;
+  border-radius: 1em;
+  background: url("./images/cart.png") no-repeat center/cover;
+}
 .theme:hover {
   cursor: pointer;
   text: "click to change theme";
@@ -81,4 +87,8 @@
   align-items: center;
   list-style-type: none;
   background-color: rgb(107, 145, 202);
+}
+.cartValue {
+  color: crimson;
+  font-size: 2.3em;
 }
