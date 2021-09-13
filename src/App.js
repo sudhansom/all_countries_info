@@ -18,13 +18,8 @@ function App() {
   const [error, countries] = useCountries(url, setCountries);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0)
-  localStorage.getItem('cart')?setCart(localStorage.getItem('cart')):localStorage.setItem('cart', cart);
-  
-
-  
-
-
-
+  //localStorage.getItem('cart')?setCart(localStorage.getItem('cart')):localStorage.setItem('cart', cart);
+  console.log("Cart Value: -- ", cart)
     return <div className='App'>
         <div>
             <Navbar total={total} cart={cart} theme={theme} setTheme={setTheme} setCountries={setCountries} countries={countries}/>
@@ -33,12 +28,13 @@ function App() {
             <Route exact path="/">
             <HomePage total={total} setTotal={setTotal} cart={cart} setCart={setCart} theme={theme} setTheme={setTheme} allData={searchCountries}/>
             </Route>
-            <Route exact path="/:countryName">
+            <Route exact path="/country/:countryName">
             <CountryPage />
             </Route>
-            <Route exact path="/cart">
+            <Route exact path="/cart/">
             {/*<CartPage cart={cart} setCart={setCart}/>*/}
-            <h1>Inside Cart page</h1>
+            <h1>Cart Page...</h1>
+            
             </Route>
         </Switch>
         
