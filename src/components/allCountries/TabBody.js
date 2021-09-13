@@ -8,15 +8,14 @@ function TabBody({total, setTotal, cart, setCart, allData, theme, setTheme}) {
     const changeCart = (nameC)=>{
         console.log('Buy items:-',cart)
         const addToCart = allData.find(elem=>elem.name===nameC)
-        if(addToCart.name in cart){
-            let x = cart[addToCart.name][0]
-                x += 1
-            cart[addToCart.name] = [x, addToCart.flag]
+        if(addToCart){
+            addToCart.quantity ++
         }
         else{
-            cart[addToCart.name] = [1, addToCart.flag]
+            const countryCart = {quantity:1, flag:""}
         }
         setCart(cart)
+        localStorage.setItem('cart', cart)
     }
     const getTotal = () =>{
         for(const item in cart){

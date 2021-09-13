@@ -12,11 +12,16 @@ import CartPage from './pages/CartPage';
 
 function App() {
   let url = "https://restcountries.eu/rest/v2/all";
+  
   const [searchCountries, setCountries] = useState([]);
   const [theme, setTheme] = useState(['#f0e6e6', 'f5f0f0'])
   const [error, countries] = useCountries(url, setCountries);
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0)
+  localStorage.getItem('cart')?setCart(localStorage.getItem('cart')):localStorage.setItem('cart', cart);
+  
+
+  
 
 
 
@@ -32,7 +37,8 @@ function App() {
             <CountryPage />
             </Route>
             <Route exact path="/cart">
-            <CartPage cart={cart} setCart={setCart}/>
+            {/*<CartPage cart={cart} setCart={setCart}/>*/}
+            <h1>Inside Cart page</h1>
             </Route>
         </Switch>
         

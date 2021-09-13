@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import cartImage from "../images/cart.png";
+import { Link } from 'react-router-dom';
 
 function Navbar({ total, cart, setCountries, countries, theme,setTheme}) {
     const [input, setInput] = useState('')
@@ -26,7 +28,7 @@ function Navbar({ total, cart, setCountries, countries, theme,setTheme}) {
                 <button>Search</button>
             </div>
             <div>
-                <p><a href={"cart"}>{total}<img width="80px" height="50px" src={"../images/cart.png"} alt="no image"></img></a></p>
+                <p><Link to={"/cart"}>{total}<img width="80px" height="50px" src={cartImage} alt="no image"></img></Link></p>
             </div>
         </div>
         
