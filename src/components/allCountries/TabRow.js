@@ -12,7 +12,7 @@ function TabRow({columnData, bgcolor, cart, setCart, total, setTotal, allData}) 
             cart[addToCart.name].quantity ++
         }
         else{
-            const countryCart = {quantity:1, flag:""}
+            const countryCart = {quantity:1, flag:addToCart.flag}
             cart[addToCart.name] = countryCart
         }
         setCart(cart)

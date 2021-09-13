@@ -16,7 +16,7 @@ function App() {
   const [searchCountries, setCountries] = useState([]);
   const [theme, setTheme] = useState(['#f0e6e6', 'f5f0f0'])
   const [error, countries] = useCountries(url, setCountries);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState({});
   const [total, setTotal] = useState(0)
   //localStorage.getItem('cart')?setCart(localStorage.getItem('cart')):localStorage.setItem('cart', cart);
   console.log("Cart Value: -- ", cart)
@@ -32,8 +32,8 @@ function App() {
             <CountryPage />
             </Route>
             <Route exact path="/cart/">
-            {/*<CartPage cart={cart} setCart={setCart}/>*/}
-            <h1>Cart Page...</h1>
+            <CartPage total={total} cart={cart} setCart={setCart}/>
+            
             
             </Route>
         </Switch>

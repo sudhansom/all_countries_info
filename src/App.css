@@ -55,8 +55,30 @@
   text-align: center;
   padding: 5px;
   box-shadow: 1em;
+  background-color: cornflowerblue;
 }
 .btn:hover {
   background-color: aquamarine;
   color: green;
+}
+.cartHeadings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  background-color: aqua;
+}
+.cartBody {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  background-color: beige;
+}
+.cartFooter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  background-color: rgb(107, 145, 202);
 }
