@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
-import cartImage from "../images/cart.png";
 import { Link } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
-function Navbar({ total, cart, setCountries, countries, theme,setTheme}) {
+
+function Navbar({ setCountries, countries, theme,setTheme}) {
     const [input, setInput] = useState('')
+    const total = useSelector(state=>state.total)
     
     const searchField = (text)=>{
         setInput(text)
@@ -21,7 +23,12 @@ function Navbar({ total, cart, setCountries, countries, theme,setTheme}) {
     return (
         <div className="navbar">
             <div>
-                <p className="theme" onClick={changeTheme}>Theme</p>
+                <label className="theme" onClick={changeTheme}> Select Theme  </label>
+                <select>
+                    <option>Red</option>
+                    <option>Yellow</option>
+                    <option>Green</option>
+                </select>
             </div>
             <div>
                 <input type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value); filterCountries(e.target.value)}}></input>

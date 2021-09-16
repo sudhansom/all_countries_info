@@ -1,24 +1,26 @@
 import React from 'react'
-
+import {useDispatch, useSelector} from 'react-redux'
+import {remove} from '../../redux/action'
 function CartBody({cart}) {
+    const carts = useSelector(state=>state.cart)
+    const total = useSelector(state=>state.total)
+    const dispatch = useDispatch()
+
+    localStorage.setItem('cart', JSON.stringify(carts))
+    localStorage.setItem('total',total)
+
+    const deleteCountry = (country)=>{
+        dispatch(remove(country))
+    }
 
     return (
         <div>
-        {cart.map(country=>{(<ul className="cartBody">
-            <li><img width="80px" height="50px"src={cart[country].flag}></img></li>
-            <li>{country}</li>
-            <li>{cart[country].quantity}</li>
-            <li>{100}</li>
-            </ul>)})}
-        {/*
-            <ul className="cartBody">
-                <li><img  width="80px" height="50px" src={cartFlag[0]}></img></li>
-                <li>{cartCountry[0]}</li>
-                <li>{cartQuantity[0]}</li>
-                <li>100 dkk</li>
-            </ul>  
-        
-            */}  
+        {carts.map(country=>{return (<ul className="cartBody">
+            <li><img width="80px" height="50px"src={country.flag}></img></li>
+            <li>{country.name}</li>
+            <li>{country.area}</li>
+            <button className="btn" onClick={()=>{deleteCountry(country.name)}}>Delete</button>
+            </ul>)})} 
         </div>
     )
 }

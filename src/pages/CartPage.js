@@ -11,7 +11,7 @@ function CartPage({total, cart, setCart}) {
             <h1>Your order is now ready</h1>
             <CartHeader />
             <CartBody cart={cart}/>
-            <CartFooter total={total}/>
+            <CartFooter />
             
             
         </div>

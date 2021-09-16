@@ -1,11 +1,10 @@
-import React from 'react'
+import React, {useSelector} from 'react'
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TabRow from './TabRow';
 
 function TabBody({total, setTotal, cart, setCart, allData, theme, setTheme}) {
-
     return (
         <TableBody>
         {

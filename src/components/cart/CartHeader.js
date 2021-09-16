@@ -6,8 +6,8 @@ function CartHeader() {
             <ul className="cartHeadings">
                 <li>Item</li>
                 <li>Name</li>
-                <li>quandity</li>
-                <li>price</li>
+                <li>Area</li>
+                <li>Delete</li>
             </ul>
         </div>
     )

@@ -2,24 +2,20 @@ import React from 'react'
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { Link } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux'
+import {insertToCart} from '../../redux/action'
 
 function TabRow({columnData, bgcolor, cart, setCart, total, setTotal, allData}) {
-    const changeCart = (nameC)=>{
-        
-        console.log('Buy items:-',cart)
-        const addToCart = allData.find(elem=>elem.name===nameC)
-        if(cart[addToCart.name]){
-            cart[addToCart.name].quantity ++
-        }
-        else{
-            const countryCart = {quantity:1, flag:addToCart.flag}
-            cart[addToCart.name] = countryCart
-        }
-        setCart(cart)
-        localStorage.setItem('cart', cart)
-        setTotal(total + 1)
-    }
+    const dispatch = useDispatch()
+    const carts = useSelector(state=>state.cart)
+    const totl = useSelector(state=>state.total)
     
+    const addToCart = (country)=>{
+      dispatch(insertToCart(country))
+      localStorage.setItem('cart', JSON.stringify(carts))
+      localStorage.setItem('total',totl)
+  }
+  
 
     return (
         <TableRow  bgColor={bgcolor}>
@@ -30,7 +26,7 @@ function TabRow({columnData, bgcolor, cart, setCart, total, setTotal, allData}) 
                 <TableCell>{columnData['region']}</TableCell>
                 <TableCell>{columnData['languages'][0]['name']}</TableCell>
                 <TableCell>{columnData['area']}</TableCell>
-                 {columnData['shopNow']==='Shop Now'?(<TableCell>{columnData['shopNow']}</TableCell>):<TableCell><button className="btn" onClick={()=>{changeCart(columnData['name'])}}>Add To Cart</button></TableCell>}
+                 {columnData['shopNow']==='Shop Now'?(<TableCell>{columnData['shopNow']}</TableCell>):<TableCell><button className="btn" onClick={()=>{addToCart(columnData)}}>Add To Cart</button></TableCell>}
                       
         </TableRow>
     )

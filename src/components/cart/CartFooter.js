@@ -1,6 +1,8 @@
 import React from 'react'
+import {useSelector} from 'react-redux';
 
-function CartFooter({total}) {
+function CartFooter() {
+    const total = useSelector(state=>state.total)
     return (
         <div className="cartFooter">
             <h4>Total Quantity: {total}</h4>
