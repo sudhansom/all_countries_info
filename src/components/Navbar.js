@@ -25,6 +25,9 @@ function Navbar({ setCountries, theme,setTheme}) {
     return (
         <div className="navbar">
             <div>
+                <h3><Link to={"/"}>Home</Link></h3>
+            </div>
+            <div>
                 <label className="theme" onClick={changeTheme}> Select Theme  </label>
                 <select>
                     <option>Red</option>
