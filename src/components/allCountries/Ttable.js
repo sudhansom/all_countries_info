@@ -3,12 +3,11 @@ import Table from '@material-ui/core/Table';
 import TabHead from './TabHead';
 import TabBody from './TabBody';
 
-function Ttable({ total, setTotal, cart, setCart, allData, theme, setTheme}) {
-    console.log('table data:', allData)
+function Ttable({ theme, setTheme}) {
     return (
         <Table>
             <TabHead />
-            <TabBody total={total} setTotal={setTotal} cart={cart} setCart={setCart} theme={theme} setTheme={setTheme}allData={allData}/>
+            <TabBody  theme={theme} setTheme={setTheme}/>
             
         </Table>
     )

@@ -1,24 +1,26 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import { filterSearchCountries} from '../redux/action';
 
-
-function Navbar({ setCountries, countries, theme,setTheme}) {
+function Navbar({ setCountries, theme,setTheme}) {
     const [input, setInput] = useState('')
     const total = useSelector(state=>state.total)
+    const countries = useSelector(state=>state.countries)
+    
+    const dispatch = useDispatch()
     
     const searchField = (text)=>{
         setInput(text)
     }
-    
-    
-    
     const changeTheme = ()=>{
         setTheme(theme[0]==='#ccd7e8'?['#97b2db','#a7f2ed']:['#ccd7e8','#f5f4c9'])
         console.log("theme chamged", theme)
     }
-    const filterCountries = (text)=>{
-        setCountries(countries.filter(elem=>elem.name.toLowerCase().startsWith(text)))
+    const filterCountries = (e, text)=>{
+        console.log('text value',text)
+        e.preventDefault()
+        dispatch(filterSearchCountries(countries.filter(elem=>elem.name.toLowerCase().startsWith(text)), text))
     }
     return (
         <div className="navbar">
@@ -31,7 +33,7 @@ function Navbar({ setCountries, countries, theme,setTheme}) {
                 </select>
             </div>
             <div>
-                <input type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value); filterCountries(e.target.value)}}></input>
+                <input type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value); filterCountries(e, e.target.value)}}></input>
                 <button>Search</button>
             </div>
             <div  className="cartImage">

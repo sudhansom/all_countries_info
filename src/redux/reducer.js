@@ -1,6 +1,11 @@
 const defaultState ={
     cart: localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[],
     total: localStorage.getItem('total')?Number(localStorage.getItem('total')):0,
+    countries:[],
+    country:{},
+    err:null,
+    filterCountries:[],
+    searchActive:false,
 }
 
 const reducer = (state=defaultState, action)=>{
@@ -16,17 +21,40 @@ const reducer = (state=defaultState, action)=>{
                 cart:[...state.cart, {name:incomingName.name,flag:incomingName.flag, area:incomingName.area}],
                 total:state.total + 1,
             }
-            case "REMOVE_COUNTRY":
-                const filteredCountries = state.cart.filter(country=>country.name!==action.payload)
-                return {
-                    ...state,
-                    cart:filteredCountries,
-                    total: state.total - 1,
-                }
+        case "REMOVE_COUNTRY":
+            const filteredCountries = state.cart.filter(country=>country.name!==action.payload)
+            return {
+                ...state,
+                cart:filteredCountries,
+                total: state.total - 1,
+            }
 
-                    
-            default:
-                return state
+        case "SUCCESS_COUNTRIES":
+            const result = action.payload;
+            return {
+                ...state,
+                countries:result,
+            }
+        case "SUCCESS_COUNTRY":
+            
+            return {
+                ...state,
+                country:action.payload[0],
+            }
+        case "FOUND_ERROR":
+            
+            return {
+                ...state,
+                err:action.payload.error,
+            }
+        case "FILTER_COUNTRIES":
+            return {
+                ...state,
+                filterCountries:action.payload,
+                searchActive:action.active,
+            }            
+        default:
+            return state
     }
     
 }

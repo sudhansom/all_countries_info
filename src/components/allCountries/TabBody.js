@@ -1,15 +1,19 @@
-import React, {useSelector} from 'react'
+import React from 'react'
 import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
 import TabRow from './TabRow';
+import {useSelector} from 'react-redux';
 
-function TabBody({total, setTotal, cart, setCart, allData, theme, setTheme}) {
+function TabBody({theme, setTheme}) {
+    const allData = useSelector(state=>state.countries)
+    const filterData = useSelector(state=>state.filterCountries)
+    const searchActive = useSelector(state=>state.searchActive)
+    let realData = searchActive?filterData:allData
+
     return (
         <TableBody>
         {
-            allData.map((item, index)=>(
-                <TabRow cart={cart} setCart={setCart} total={total} setTotal={setTotal} columnData={item} allData={allData}bgcolor={index%2===0?theme[0]:theme[1]}/>))
+            realData.map((item, index)=>(
+                <TabRow  columnData={item} bgcolor={index%2===0?theme[0]:theme[1]}/>))
         }
             
         </TableBody>
