@@ -14,6 +14,13 @@ export const removeCountry = countryName => {
     }
 }
 
+export const selectTheme = theme =>{
+    return{
+        type:'SELECT_THEME',
+        payload: theme,
+    }
+}
+
 export const getAllCountries = ()=>{
     return async (dispatch, getState)=>{
         try{

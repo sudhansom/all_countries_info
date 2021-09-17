@@ -1,35 +1,37 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { filterSearchCountries} from '../redux/action';
+import { filterSearchCountries, selectTheme} from '../redux/action';
 
-function Navbar({theme,setTheme}) {
+function Navbar() {
     const [input, setInput] = useState('')
     const total = useSelector(state=>state.total)
     const countries = useSelector(state=>state.countries)
+    const theme = useSelector(state=>state.theme)
+    
     
     const dispatch = useDispatch()
     
     const searchField = (text)=>{
         setInput(text)
     }
-    const changeTheme = ()=>{
-        setTheme(theme[0]==='#ccd7e8'?['#97b2db','#a7f2ed']:['#ccd7e8','#f5f4c9'])
-        console.log("theme chamged", theme)
-    }
+    
     const filterCountries = (e, text)=>{
         console.log('text value',text)
         e.preventDefault()
         dispatch(filterSearchCountries(countries.filter(elem=>elem.name.toLowerCase().startsWith(text)), text))
     }
+    const handleTheme = (e)=>{
+            dispatch(selectTheme(e.target.value))
+        }
     return (
         <div className="navbar">
             <div>
                 <h3><Link to={"/"}>Home</Link></h3>
             </div>
             <div>
-                <label className="theme" onClick={changeTheme}> Select Theme  </label>
-                <select>
+                <label className="theme"> Select Theme  </label>
+                <select onChange={handleTheme}>
                     <option>Red</option>
                     <option>Yellow</option>
                     <option>Green</option>

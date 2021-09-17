@@ -1,6 +1,7 @@
 const defaultState ={
     cart: localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[],
     total: localStorage.getItem('total')?Number(localStorage.getItem('total')):0,
+    theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#ccd7e8','#f5f4c9'],
     countries:[],
     country:{},
     err:null,
@@ -64,6 +65,23 @@ const reducer = (state=defaultState, action)=>{
             }            
         default:
             return state
+        
+        case "SELECT_THEME":
+            let temp = []
+            if(action.payload==='Green'){
+                 temp = ['#dbebab','#b8c29b']
+            }
+            else if(action.payload==='Yellow'){
+                 temp = ['#f2ee96','#f2f0b3']
+            }
+            else if(action.payload==='Red'){
+                 temp = ['#f7a1a7','#d9a3a6']
+            }
+
+            return{
+                ...state,
+                theme:temp,
+            }
     }
     
 }
