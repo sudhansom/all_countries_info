@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { filterSearchCountries} from '../redux/action';
 
-function Navbar({ setCountries, theme,setTheme}) {
+function Navbar({theme,setTheme}) {
     const [input, setInput] = useState('')
     const total = useSelector(state=>state.total)
     const countries = useSelector(state=>state.countries)

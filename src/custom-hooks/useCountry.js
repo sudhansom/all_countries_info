@@ -1,23 +1,14 @@
 // This hook is used to fetch one specific country
 import { useState, useEffect } from "react";
-const useCountry = (url)=>{
-    const [data, setData] = useState([])
-    const [error, setError] = useState('');
+import {useSelector, useDispatch} from 'react-redux';
+import { getOneCountry } from "../redux/action";
+const useCountry = (countryName)=>{
+    const error = useSelector(state=>state.err)
+    const data = useSelector(state=>state.country)
+    const dispatch = useDispatch()
     useEffect(()=>{
-        const fetchData = async()=>{
-            try{
-                const result = await fetch(url).then(response=>response.json());
-                setData(result) // sets data = result 
-                console.log('onCountry in hooks:', result) 
-                setError("no error") 
-            }
-            catch(err){
-                setError('error while fetching data')
-                setData([])
-            }
-        }
-        fetchData()
-    }, [url])
+        dispatch(getOneCountry(countryName))
+    }, countryName)
     return [error, data]
 }
 export default useCountry

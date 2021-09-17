@@ -1,13 +1,13 @@
 import useCountries from "../custom-hooks/useCountries"
 
-export const insertToCart = (country)=>{
+export const insertCountryToCart = (country)=>{
     return{
         type:"INSERT_COUNTRY",
         payload: country,
     }
 }    
 
-export const remove = countryName => {
+export const removeCountry = countryName => {
     return {
         type:'REMOVE_COUNTRY',
         payload: countryName,
@@ -62,5 +62,21 @@ export const filterSearchCountries = (filteredCountries, text)=>{
         type:"FILTER_COUNTRIES",
         payload: filteredCountries,
         active: text?true:false,
+    }
+}
+
+export const alreadyAddedDisable = ()=>{
+    return async (dispatch, getState)=>{
+        setTimeout(()=>{
+            dispatch(disableAlert())
+            console.log('jpt')
+        }, 100)
+    }
+}
+
+export const disableAlert = ()=>{
+    console.log("now only...")
+    return {
+        type: "ALREADY_ADDED",
     }
 }

@@ -6,6 +6,7 @@ const defaultState ={
     err:null,
     filterCountries:[],
     searchActive:false,
+    alreadyAdded:false,
 }
 
 const reducer = (state=defaultState, action)=>{
@@ -14,7 +15,10 @@ const reducer = (state=defaultState, action)=>{
             const incomingName = action.payload;
             const existCountry = state.cart.find(country=>country.name===incomingName.name)
             if(existCountry){
-                return state
+                return {
+                    ...state,
+                    alreadyAdded:true,
+                }
             }
             return {
                 ...state,
@@ -52,6 +56,11 @@ const reducer = (state=defaultState, action)=>{
                 ...state,
                 filterCountries:action.payload,
                 searchActive:action.active,
+            }
+        case "ALREADY_ADDED":
+            return {
+                ...state,
+                alreadyAdded:false,
             }            
         default:
             return state

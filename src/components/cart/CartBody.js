@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {remove} from '../../redux/action'
+import {removeCountry} from '../../redux/action'
 function CartBody({cart}) {
     const carts = useSelector(state=>state.cart)
     const total = useSelector(state=>state.total)
@@ -10,7 +10,7 @@ function CartBody({cart}) {
     localStorage.setItem('total',total)
 
     const deleteCountry = (country)=>{
-        dispatch(remove(country))
+        dispatch(removeCountry(country))
     }
 
     return (

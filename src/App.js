@@ -7,18 +7,19 @@ import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import {Switch, Route} from 'react-router-dom';
 import CartPage from './pages/CartPage';
+import {useSelector} from 'react-redux';
 
 function App() { 
   const [theme, setTheme] = useState(['#f0e6e6', 'f5f0f0'])
   const [error, countries] = useCountries();
-  
-  //localStorage.getItem('cart')?setCart(localStorage.getItem('cart')):localStorage.setItem('cart', cart);
-  
-  
+  const total = useSelector(state=>state.total)
+  const cart = useSelector(state=>state.cart)
+  localStorage.setItem('cart', JSON.stringify(cart))
+  localStorage.setItem('total',total)
   
     return <div className='App'>
         <div>
-            <Navbar  theme={theme} setTheme={setTheme}  countries={countries}/>
+            <Navbar  theme={theme} setTheme={setTheme}/>
         </div>
         <Switch>
             <Route exact path="/">

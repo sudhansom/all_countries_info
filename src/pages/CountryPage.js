@@ -8,8 +8,7 @@ function CountryPage() {
     const param = useParams()
     const {countryName} = param
   
-  const url = `https://restcountries.eu/rest/v2/name/${countryName}`;
-  const [err, country] = useCountry(url)
+  const [err, country] = useCountry(countryName)
   console.log('App:~',country)
 
     return (
