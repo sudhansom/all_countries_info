@@ -41,6 +41,15 @@ function Navbar() {
                 <input type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value); filterCountries(e, e.target.value)}}></input>
                 <button>Search</button>
             </div>
+            <div>
+                <label className="sort"> Sort By:  </label>
+                <select >
+                    <option>Name</option>
+                    <option>Region</option>
+                    <option>Population</option>
+                    <option>Area</option>
+                </select>
+            </div>
             <div  className="cartImage">
                 <Link  to={"/cart"}>
                 <p><sup className="cartValue">{total}</sup></p>
