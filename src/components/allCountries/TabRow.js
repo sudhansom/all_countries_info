@@ -15,6 +15,7 @@ function TabRow({columnData, bgcolor}) {
       localStorage.setItem('cart', JSON.stringify(cart))
       localStorage.setItem('total',total)  
   }
+  console.log('in the TabRow...')
   
 
     return (

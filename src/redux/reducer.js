@@ -63,8 +63,6 @@ const reducer = (state=defaultState, action)=>{
                 ...state,
                 alreadyAdded:false,
             }            
-        default:
-            return state
         
         case "SELECT_THEME":
             let temp = []
@@ -77,11 +75,25 @@ const reducer = (state=defaultState, action)=>{
             else if(action.payload==='Red'){
                  temp = ['#f7a1a7','#f2d5d7']
             }
-
             return{
                 ...state,
                 theme:temp,
             }
+        case "SORT":
+            console.log("you are here inside reducer-sort ...")
+            const sortBy = action.payload;
+            let sortResult = state.countries;
+            if(sortBy==='area' || sortBy==='population'){
+                sortResult = state.countries.sort((a,b)=>{return(a[sortBy]-b[sortBy])})
+            }else{
+                sortResult =state.countries.sort((a,b)=>{return(a[sortBy].localeCompare(b[sortBy]))})
+            }
+            return {
+            ...state,
+            countries:sortResult,
+            }
+        default:
+            return state
     }
     
 }

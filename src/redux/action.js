@@ -1,4 +1,4 @@
-import useCountries from "../custom-hooks/useCountries"
+//import useCountries from "../custom-hooks/useCountries"
 
 export const insertCountryToCart = (country)=>{
     return{
@@ -20,6 +20,13 @@ export const selectTheme = theme =>{
         payload: theme,
     }
 }
+export const sortTheCountries = sortBy =>{
+    return{
+        type:'SORT',
+        payload: sortBy,
+    }
+}
+
 
 export const getAllCountries = ()=>{
     return async (dispatch, getState)=>{

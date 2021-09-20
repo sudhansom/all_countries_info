@@ -9,7 +9,7 @@ function TabBody() {
     const searchActive = useSelector(state=>state.searchActive)
     let realData = searchActive?filterData:allData
     const theme = useSelector(state=>state.theme)
-
+    
     return (
         <TableBody>
         {

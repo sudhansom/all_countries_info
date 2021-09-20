@@ -1,14 +1,12 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { filterSearchCountries, selectTheme} from '../redux/action';
+import { filterSearchCountries, selectTheme, sortTheCountries} from '../redux/action';
 
 function Navbar() {
     const [input, setInput] = useState('')
     const total = useSelector(state=>state.total)
     const countries = useSelector(state=>state.countries)
-    const theme = useSelector(state=>state.theme)
-    
     
     const dispatch = useDispatch()
     
@@ -23,6 +21,10 @@ function Navbar() {
     }
     const handleTheme = (e)=>{
             dispatch(selectTheme(e.target.value))
+        }
+    const sortCountries = (e)=>{
+            e.preventDefault()
+            dispatch(sortTheCountries(e.target.value))
         }
     return (
         <div className="navbar">
@@ -43,11 +45,11 @@ function Navbar() {
             </div>
             <div>
                 <label className="sort"> Sort By:  </label>
-                <select >
-                    <option>Name</option>
-                    <option>Region</option>
-                    <option>Population</option>
-                    <option>Area</option>
+                <select onChange={sortCountries}>
+                    <option>name</option>
+                    <option>region</option>
+                    <option>population</option>
+                    <option>area</option>
                 </select>
             </div>
             <div  className="cartImage">
