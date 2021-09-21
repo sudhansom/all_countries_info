@@ -1,14 +1,13 @@
-import React from 'react'
 const defaultTheme = {
-    theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
+  theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
 }
 
-const reducerTheme = (state=['#b6f1f2','#d7f4f5'], action)=>{
-    console.log("i am inside theme now.....")
-  switch(action.payload){
+const reducerTheme = (state=defaultTheme, action)=>{
+  switch(action.type){
     case "SELECT_THEME":
       let temp = []
       if(action.payload==='Green'){
+            console.log("i am inside theme now.....")
             temp = ['#dbebab','#dff5ed']
       }
       else if(action.payload==='Yellow'){
@@ -23,7 +22,7 @@ const reducerTheme = (state=['#b6f1f2','#d7f4f5'], action)=>{
       }
     default:
       return {
-        state
+        ...state
       }
   }
 }

@@ -1,10 +1,9 @@
 const defaultState ={
     cart: localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[],
     total: localStorage.getItem('total')?Number(localStorage.getItem('total')):0,
-    //theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
     countries:[],
     country:{},
-    err:null,
+    err:'something wrong went on...',
     filterCountries:[],
     searchActive:false,
     alreadyAdded:false,
@@ -64,21 +63,6 @@ const reducer = (state=defaultState, action)=>{
                 alreadyAdded:false,
             }            
         
-        case "SELECT_THEMES":
-            let temp = []
-            if(action.payload==='Green'){
-                 temp = ['#dbebab','#dff5ed']
-            }
-            else if(action.payload==='Yellow'){
-                 temp = ['#f2ee96','#f5f0d3']
-            }
-            else if(action.payload==='Red'){
-                 temp = ['#f7a1a7','#f2d5d7']
-            }
-            return{
-                ...state,
-                theme:temp,
-            }
         case "SORT":
             console.log("you are here inside reducer-sort ...")
             const sortBy = action.payload;
