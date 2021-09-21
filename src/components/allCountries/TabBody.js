@@ -4,11 +4,11 @@ import TabRow from './TabRow';
 import {useSelector} from 'react-redux';
 
 function TabBody() {
-    const allData = useSelector(state=>state.countries)
-    const filterData = useSelector(state=>state.filterCountries)
-    const searchActive = useSelector(state=>state.searchActive)
+    const allData = useSelector(state=>state.reducer.countries)
+    const filterData = useSelector(state=>state.reducer.filterCountries)
+    const searchActive = useSelector(state=>state.reducer.searchActive)
     let realData = searchActive?filterData:allData
-    const theme = useSelector(state=>state.theme)
+    const theme = useSelector(state=>state.reducerTheme.theme)
     
     return (
         <TableBody>

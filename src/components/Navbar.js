@@ -5,8 +5,8 @@ import { filterSearchCountries, selectTheme, sortTheCountries} from '../redux/ac
 
 function Navbar() {
     const [input, setInput] = useState('')
-    const total = useSelector(state=>state.total)
-    const countries = useSelector(state=>state.countries)
+    const total = useSelector(state=>state.reducer.total)
+    const countries = useSelector(state=>state.reducer.countries)
     
     const dispatch = useDispatch()
     

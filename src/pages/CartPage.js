@@ -6,7 +6,7 @@ import CartFooter from '../components/cart/CartFooter'
 import {useSelector} from 'react-redux'
 
 function CartPage() {
-    const total = useSelector(state=>state.total)
+    const total = useSelector(state=>state.reducer.total)
     if(total!==0){
         return (
         <div className="cartPage">
