@@ -2,8 +2,8 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {removeCountry} from '../../redux/action'
 function CartBody({cart}) {
-    const carts = useSelector(state=>state.cart)
-    const total = useSelector(state=>state.total)
+    const carts = useSelector(state=>state.reducer.cart)
+    const total = useSelector(state=>state.reducer.total)
     const dispatch = useDispatch()
 
     localStorage.setItem('cart', JSON.stringify(carts))

@@ -7,8 +7,8 @@ import {insertCountryToCart, alreadyAddedDisable} from '../../redux/action'
 
 function TabRow({columnData, bgcolor}) {
     const dispatch = useDispatch()
-    const cart = useSelector(state=>state.cart)
-    const total = useSelector(state=>state.total)
+    const cart = useSelector(state=>state.reducer.cart)
+    const total = useSelector(state=>state.reducer.total)
     
     const addToCart = (country)=>{
       dispatch(insertCountryToCart(country))

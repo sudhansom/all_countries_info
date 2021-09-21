@@ -1,7 +1,7 @@
 const defaultState ={
     cart: localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[],
     total: localStorage.getItem('total')?Number(localStorage.getItem('total')):0,
-    theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
+    //theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
     countries:[],
     country:{},
     err:null,
@@ -64,7 +64,7 @@ const reducer = (state=defaultState, action)=>{
                 alreadyAdded:false,
             }            
         
-        case "SELECT_THEME":
+        case "SELECT_THEMES":
             let temp = []
             if(action.payload==='Green'){
                  temp = ['#dbebab','#dff5ed']
@@ -90,7 +90,7 @@ const reducer = (state=defaultState, action)=>{
             }
             return {
             ...state,
-            countries:sortResult,
+            countries:[...sortResult],
             }
         default:
             return state
