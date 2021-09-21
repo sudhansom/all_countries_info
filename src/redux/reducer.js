@@ -90,7 +90,7 @@ const reducer = (state=defaultState, action)=>{
             }
             return {
             ...state,
-            countries:sortResult,
+            countries:[...sortResult],
             }
         default:
             return state
