@@ -2,7 +2,6 @@ import React from 'react'
 
 function Details({ countryName }) {
   if ([countryName].length>0) {
-    //const country = countryName
     return (
       <div className="details">
         <h1>{countryName.name}</h1>
