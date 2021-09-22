@@ -8,10 +8,10 @@ const reducerTheme = (state=defaultTheme, action)=>{
       let temp = []
       if(action.payload==='Green'){
             console.log("i am inside theme now.....")
-            temp = ['#dbebab','#dff5ed']
+            temp = ['#bff5c6','#dcf7e0']
       }
       else if(action.payload==='Yellow'){
-            temp = ['#f2ee96','#f5f0d3']
+            temp = ['#f0eec9','#e6edbe']
       }
       else if(action.payload==='Red'){
             temp = ['#f7a1a7','#f2d5d7']
