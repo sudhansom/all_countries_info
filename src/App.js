@@ -2,6 +2,7 @@ import './App.css'
 import {useState} from 'react';
 import useCountries from './custom-hooks/useCountries'
 import Navbar from './components/Navbar';
+import HeaderSection from './components/HeaderSection';
 
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
@@ -24,6 +25,9 @@ function App() {
         
         <div>
             <Navbar />
+        </div>
+        <div>
+            <HeaderSection />
         </div>
         <Switch>
             <Route exact path="/">

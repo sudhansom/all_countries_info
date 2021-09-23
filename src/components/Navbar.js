@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { filterSearchCountries, selectTheme, sortTheCountries} from '../redux/action';
+import logo from "../images/home.png"
+import cartIcon from "../images/cart.png"
+import fullmoon from "../images/fullmoon.png"
+import darkmoon from "../images/darkmoon.png"
 
 function Navbar() {
     const [input, setInput] = useState('')
@@ -28,15 +32,32 @@ function Navbar() {
         }
     return (
         <div className="navbar">
-            <div>
-                <h3><Link to={"/"}>Home</Link></h3>
+            <div >
+                <Link  to={"/"}>
+                <img className="homeIcon" src={logo} alt="logo"></img>
+                </Link>
             </div>
+        
             <div>
-                <label className="theme"> Select Theme  </label>
+                <label className="theme"> Change Theme:   </label>
                 <select onChange={handleTheme}>
                     <option>Red</option>
                     <option>Yellow</option>
                     <option>Green</option>
+                    <option>
+                        <div >
+                            <Link  to={"/"}>
+                                <img className="moon" src={fullmoon} alt="logo"></img>
+                            </Link>
+                        </div>
+                    </option>
+                    <option>
+                        <div >
+                            <Link  to={"/"}>
+                                <img className="moon" src={darkmoon} alt="logo"></img>
+                            </Link>
+                        </div>
+                    </option>
                 </select>
             </div>
             <div>
@@ -52,9 +73,10 @@ function Navbar() {
                     <option>area</option>
                 </select>
             </div>
-            <div  className="cartImage">
+            <div  className="cartImage1">
                 <Link  to={"/cart"}>
-                <p><sup className="cartValue">{total}</sup></p>
+                <img className="homeIcon" src={cartIcon} alt="cart icon"></img>
+                <span><sup className="cartValue">{total}</sup></span>
                 </Link>
             </div>
         </div>

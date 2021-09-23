@@ -10,7 +10,7 @@ function CartPage() {
     if(total!==0){
         return (
         <div className="cartPage">
-            <h1>Your order is now ready</h1>
+            <h1>Selected country list is now ready</h1>
             <CartHeader />
             <CartBody />
             <CartFooter />
