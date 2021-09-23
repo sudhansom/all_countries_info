@@ -89,8 +89,10 @@ export const sendError = error =>{
 export const filterSearchCountries = (filteredCountries, text)=>{
     return {
         type:"FILTER_COUNTRIES",
-        payload: filteredCountries,
-        active: text?true:false,
+        payload: {
+            filteredCountries:filteredCountries,
+            active: text?true:false,
+    }
     }
 }
 

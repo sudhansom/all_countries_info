@@ -54,8 +54,8 @@ const reducer = (state=defaultState, action)=>{
         case "FILTER_COUNTRIES":
             return {
                 ...state,
-                filterCountries:action.payload,
-                searchActive:action.active,
+                filterCountries:action.payload['filteredCountries'],
+                searchActive:action.payload['active'],
             }
         case "ALREADY_ADDED":
             return {
