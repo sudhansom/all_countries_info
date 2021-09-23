@@ -3,7 +3,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
-import {insertCountryToCart, alreadyAddedDisable} from '../../redux/action'
+import {saveCountryToCart, alreadyAddedDisable} from '../../redux/action'
 
 function TabRow({columnData, bgcolor}) {
     const dispatch = useDispatch()
@@ -11,7 +11,7 @@ function TabRow({columnData, bgcolor}) {
     const total = useSelector(state=>state.reducer.total)
     
     const addToCart = (country)=>{
-      dispatch(insertCountryToCart(country))
+      dispatch(saveCountryToCart(country))
       localStorage.setItem('cart', JSON.stringify(cart))
       localStorage.setItem('total',total)  
   }

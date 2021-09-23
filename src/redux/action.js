@@ -1,11 +1,26 @@
 //import useCountries from "../custom-hooks/useCountries"
 
-export const insertCountryToCart = (country)=>{
+export const insertCountryToCart = (country, updateCart, currentTotal)=>{
     return{
         type:"INSERT_COUNTRY",
-        payload: country,
+        payload: {
+            country: country,
+            toCart:updateCart,
+            currentTotal: currentTotal
+        }
     }
-}    
+} 
+export const saveCountryToCart = (country)=>{
+    return (dispatch, getState)=>{
+        const currentCart=localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):getState().reducer.cart;
+        let currentTotal = localStorage.getItem('total')?Number(localStorage.getItem('total')):getState().reducer.total;
+            currentTotal += 1;
+        localStorage.setItem('cart', JSON.stringify(currentCart))
+        localStorage.setItem('total', Number(currentTotal))
+        
+        dispatch(insertCountryToCart(country, currentCart, currentTotal))
+    }
+}   
 
 export const removeCountry = countryName => {
     return {
