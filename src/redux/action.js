@@ -57,7 +57,7 @@ export const getAllCountries = ()=>{
 export const getOneCountry = (countryName)=>{
     return async (dispatch, getState)=>{
         try{
-            const data = await fetch(`https://restcountries-v2.herokuapp.com/country/{name} .com/v3/name/{name}`).then(response=>response.json())
+            const data = await fetch(`https://restcountries-v2.herokuapp.com/country/${countryName}`).then(response=>response.json())
             dispatch(getSuccessContry(data))
         }catch(error){
             dispatch(sendError(error))

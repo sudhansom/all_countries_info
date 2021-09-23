@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { getOneCountry } from "../redux/action";
 const useCountry = (countryName)=>{
-    const error = useSelector(state=>state.reducer.country.err)
+    const error = useSelector(state=>state.reducer.err)
     const data = useSelector(state=>state.reducer.country)
     const dispatch = useDispatch()
     useEffect(()=>{
