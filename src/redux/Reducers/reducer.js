@@ -12,17 +12,9 @@ const defaultState ={
 const reducer = (state=defaultState, action)=>{
     switch(action.type){
         case 'INSERT_COUNTRY':
-            const incomingName = action.payload['country'];
-            const existCountry = state.cart.find(country=>country.name===incomingName.name)
-            if(existCountry){
-                return {
-                    ...state,
-                    alreadyAdded:true,
-                }
-            }
             return {
                 ...state,
-                cart:[...action.payload['toCart'], {name:incomingName.name,flag:incomingName.flag, area:incomingName.area}],
+                cart:[...action.payload['toCart'], ],
                 total:action.payload['currentTotal'],
             }
         case "REMOVE_COUNTRY":

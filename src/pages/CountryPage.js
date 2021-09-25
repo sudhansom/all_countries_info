@@ -5,10 +5,10 @@ import {useParams} from 'react-router-dom'
 
 import useCountry from '../custom-hooks/useCountry';
 function CountryPage() {
-    const param = useParams()
-    const {countryName} = param
+    //const param = useParams()
+    //const {countryName} = useParams()
   
-  const [err, country] = useCountry(countryName)
+  const [err, country] = useCountry()
   console.log('App:~',country)
 
     return (

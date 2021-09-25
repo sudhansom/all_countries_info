@@ -12,15 +12,14 @@ import {useSelector} from 'react-redux';
 
 function App() { 
   
-  const [error, countries] = useCountries();
-  const total = useSelector(state=>state.reducer.total)
+  const [error, countries] = useCountries();  
   const cart = useSelector(state=>state.reducer.cart)
+  const total = useSelector(state=>state.reducer.total)
   const theme = useSelector(state=>state.reducerTheme.theme)
+  localStorage.setItem('theme', JSON.stringify(theme))
   localStorage.setItem('cart', JSON.stringify(cart))
-  localStorage.setItem('total',total)
-  localStorage.setItem('theme',JSON.stringify(theme))
+  localStorage.setItem('total', JSON.stringify(total))
 
-  
     return <div className='App'>
         
         <div>

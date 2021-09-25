@@ -1,5 +1,5 @@
 const defaultTheme = {
-  theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
+  theme:[],
 }
 
 const reducerTheme = (state=defaultTheme, action)=>{

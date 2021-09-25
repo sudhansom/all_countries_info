@@ -6,7 +6,9 @@ import Ttable from '../components/allCountries/Ttable'
 function HomePage({theme, setTheme}) {
     return (
         <TableContainer>
-            <Ttable  theme={theme}setTheme={setTheme}/>
+            <div className="homePage">
+                <Ttable  theme={theme}setTheme={setTheme}/>
+            </div>
         </TableContainer>
     )
 }

@@ -1,10 +1,9 @@
 //import useCountries from "../custom-hooks/useCountries"
 
-export const insertCountryToCart = (country, updateCart, currentTotal)=>{
+export const insertCountryToCart = (updateCart, currentTotal)=>{
     return{
         type:"INSERT_COUNTRY",
         payload: {
-            country: country,
             toCart:updateCart,
             currentTotal: currentTotal
         }
@@ -12,13 +11,20 @@ export const insertCountryToCart = (country, updateCart, currentTotal)=>{
 } 
 export const saveCountryToCart = (country)=>{
     return (dispatch, getState)=>{
-        const currentCart=localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):getState().reducer.cart;
-        let currentTotal = localStorage.getItem('total')?Number(localStorage.getItem('total')):getState().reducer.total;
+        let currentCart= getState().reducer.cart;
+        let currentTotal = getState().reducer.total;
+            
+        const existCountry = currentCart.find(item=>item.name===country.name)
+        if(existCountry){
+            console.log("country already exists")
+        }else{
+            currentCart = [...currentCart, {name:country.name,flag:country.flag, area:country.area}]
             currentTotal += 1;
-        localStorage.setItem('cart', JSON.stringify(currentCart))
-        localStorage.setItem('total', Number(currentTotal))
+        }
+        //localStorage.setItem('cart', JSON.stringify(currentCart))
+        //localStorage.setItem('total', JSON.stringify(currentTotal))
         
-        dispatch(insertCountryToCart(country, currentCart, currentTotal))
+        dispatch(insertCountryToCart(currentCart, currentTotal))
     }
 }   
 
