@@ -30,14 +30,16 @@
   width: 100vw;
   height: 45vh;
   background-image: url("./images/world.png");
-  display: flex;
+  display: block;
 }
 .header_info {
   justify-content: center;
   align-items: center;
   margin: auto;
-  font-size: 2em;
   color: rebeccapurple;
+}
+.searchField {
+  align-self: flex-end;
 }
 .details {
   width: 300px;
@@ -70,11 +72,18 @@
 .navbar {
   height: 8vh;
   width: 100vw;
-  background-color: rgba(91, 122, 209, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headbar {
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 8vh;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url(./images/world.png);
 }
 .cartImage {
   height: 7vh;
@@ -124,7 +133,7 @@
   color: crimson;
   font-size: 2.3em;
 }
-select {
+select1 {
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
   width: 20%;
   height: 4%;
@@ -138,10 +147,4 @@ select {
   border: 2px solid blue;
   margin-right: 5%;
   margin-left: 5%;
-}
-.bodyPart {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-image: url("./images/cart.png");
 }

@@ -21,10 +21,6 @@ function App() {
   localStorage.setItem('total', JSON.stringify(total))
 
     return <div className='App'>
-        
-        <div>
-            <Navbar />
-        </div>
         <div>
             <HeaderSection />
         </div>
