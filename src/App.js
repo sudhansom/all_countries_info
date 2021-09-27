@@ -3,7 +3,7 @@ import {useState} from 'react';
 import useCountries from './custom-hooks/useCountries'
 import Navbar from './components/Navbar';
 import HeaderSection from './components/HeaderSection';
-
+import TablContainr from './components/dynamicTable/TablContainr';
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import {Switch, Route} from 'react-router-dom';
@@ -19,6 +19,7 @@ function App() {
   localStorage.setItem('theme', JSON.stringify(theme))
   localStorage.setItem('cart', JSON.stringify(cart))
   localStorage.setItem('total', JSON.stringify(total))
+  console.log('cart:- ', cart)
 
     return <div className='App'>
         <div>
@@ -26,13 +27,13 @@ function App() {
         </div>
         <Switch>
             <Route exact path="/">
-                <HomePage   />
+                <TablContainr select={1} />
             </Route>
             <Route exact path="/country/:countryName">
                 <CountryPage />
             </Route>
             <Route exact path="/cart/">
-                <CartPage />
+                <TablContainr select={2} />
             </Route>
         </Switch>
         
