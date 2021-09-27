@@ -8,7 +8,11 @@ import {saveCountryToCart, removeCountry} from '../../redux/action'
 
 function TablContainr({select}) {
     const dispatch = useDispatch()
-    const items = useSelector(state=>state.reducer.countries)
+    const allData = useSelector(state => state.reducer.countries)
+    const filterData = useSelector(state => state.reducer.filterCountries)
+    const searchActive = useSelector(state => state.reducer.searchActive)
+    let items = searchActive ? filterData : allData
+    
     const cart = useSelector(state=>state.reducer.cart)
     const total = useSelector(state=>state.reducer.total)
     const column = ['flag', 'name', 'nativeName', 'region', 'population', 'select']
@@ -46,7 +50,7 @@ function TablContainr({select}) {
                     case "flag":
                         return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
                     case "delete":
-                        return (<Button variant="outlined" startIcon={<DeleteIcon/>} onClick={()=>{deleteCountry(items['name'])}}>Delete</Button>)
+                        return (<Button variant="outlined"  color="secondary" startIcon={<DeleteIcon/>} onClick={()=>{deleteCountry(items['name'])}}>Delete</Button>)
                     default:
                         return <p>{items[item]}</p>
                 }

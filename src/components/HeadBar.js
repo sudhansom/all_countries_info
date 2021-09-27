@@ -33,29 +33,17 @@ function HeadBar() {
     }
     return (
         <div className="headbar">
-        
-            <div>
-                <label className="theme"> Change Theme:   </label>
-                <select onChange={handleTheme}>
-                    <option>Red</option>
-                    <option>Yellow</option>
-                    <option>Green</option>
-                    <option>
-                        <div >
-                            <Link  to={"/"}>
-                                <img className="moon" src={fullmoon} alt="logo"></img>
-                            </Link>
-                        </div>
-                    </option>
-                    <option>
-                        <div >
-                            <Link  to={"/"}>
-                                <img className="moon" src={darkmoon} alt="logo"></img>
-                            </Link>
-                        </div>
-                    </option>
-                </select>
+            <div >
+                <div>
+                <Link  to={"/"}>
+                    <img className="moon" width="45px" height="45px" src={fullmoon} alt="logo"></img>
+                </Link>
+                <Link  to={"/"}>
+                    <img className="moon"  width="45px" height="45px" src={darkmoon} alt="logo"></img>
+                </Link>
+                </div>
             </div>
+        
             <div className="searchField">
                     <TextField 
                     variant="standard"

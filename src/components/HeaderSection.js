@@ -6,6 +6,7 @@ import { filterSearchCountries, selectTheme, sortTheCountries} from '../redux/ac
 import 'fontsource-roboto';
 import Topography from '@material-ui/core/Typography'
 import Navbar from './Navbar';
+import HeadBar from './HeadBar';
 
 function HeaderSection() {
     return (
@@ -18,6 +19,9 @@ function HeaderSection() {
                 DATA MAKES US POWERFUL
                 </Topography>
                 <Topography variant="body1">find all the countries info you need...</Topography>   
+            </div>
+            <div>
+                <HeadBar />
             </div>      
         </div>
     )

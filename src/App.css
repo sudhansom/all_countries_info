@@ -16,7 +16,8 @@
   border-radius: 50%;
 }
 .moon {
-  width: 1em;
+  margin-top: 0;
+  width: 2em;
   border-radius: 50%;
 }
 .moon:hover {
@@ -77,6 +78,7 @@
   align-items: center;
 }
 .headbar {
+  margin-top: 8%;
   margin-left: 5%;
   margin-right: 5%;
   height: 8vh;
