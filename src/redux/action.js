@@ -117,3 +117,10 @@ export const disableAlert = ()=>{
         type: "ALREADY_ADDED",
     }
 }
+
+export const saveKeys = (text)=>{
+    return {
+        type:"SAVE_KEYS",
+        payload:text,
+    }
+}

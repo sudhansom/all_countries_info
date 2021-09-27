@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   border: 1px solid rgb(0, 17, 255);
-  background: url("https://images.unsplash.com/photo-1618588507085-c79565432917?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1544&q=80")
+  background: url("https://www.freeworldmaps.net/download/maps/world-continents-map.jpg")
     no-repeat center/cover;
 }
 .tableHeader {
@@ -45,8 +45,7 @@
 .details {
   width: 300px;
   height: 300px;
-  border: 1px solid rgba(7, 4, 168, 0.2);
-  color: rgb(245, 245, 248);
+  color: rgb(35, 6, 204);
   align-items: center;
   margin: 0 auto;
 }
@@ -57,7 +56,7 @@
   margin: 1em auto;
 }
 .back {
-  color: rgb(242, 242, 247);
+  color: rgb(19, 19, 207);
   font-size: 2em;
   text-shadow: 1em;
   align-self: flex-end;

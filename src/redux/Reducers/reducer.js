@@ -7,6 +7,7 @@ const defaultState ={
     filterCountries:[],
     searchActive:false,
     alreadyAdded:false,
+    colNames:[],
 }
 
 const reducer = (state=defaultState, action)=>{
@@ -67,6 +68,12 @@ const reducer = (state=defaultState, action)=>{
             return {
             ...state,
             countries:[...sortResult],
+            }
+        case "SAVE_KEYS":
+            const newColNames = action.payload
+            return{
+                ...state,
+                colNames:newColNames,
             }
         default:
             return state

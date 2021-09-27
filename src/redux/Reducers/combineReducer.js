@@ -16,6 +16,7 @@ export const preloadedState = {
         filterCountries:[],
         searchActive:false,
         alreadyAdded:false,
+        colNames:[],
     },
     reducerTheme:{
         theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],

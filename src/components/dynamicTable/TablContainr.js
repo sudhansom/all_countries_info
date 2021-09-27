@@ -5,6 +5,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete'
 import DataTable from './Table';
 import {saveCountryToCart, removeCountry} from '../../redux/action'
+import { Link } from 'react-router-dom';
 
 function TablContainr({select}) {
     const dispatch = useDispatch()
@@ -33,7 +34,9 @@ function TablContainr({select}) {
                 switch(item){
                     case "flag":
                         return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
-                    case "select":
+                    case "name":
+                        return <p><Link to={`/country/${items[item]}`}>{items[item]}</Link></p>
+                        case "select":
                         return (<Button variant="outlined" startIcon={<SaveIcon/>} onClick={()=>{addToCart(items)}}>Like</Button>)
                     default:
                         return <p>{items[item]}</p>
@@ -41,7 +44,7 @@ function TablContainr({select}) {
             }
         }
     })
-    const cartColumn = ['flag', 'name', 'nativeName', 'area', 'delete']
+    const cartColumn = ['flag', 'name', 'area', 'delete']
     const cartColumns = cartColumn.map(item=>{
         return {
             label:item.toUpperCase(),
