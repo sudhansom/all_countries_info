@@ -52,7 +52,7 @@ export const sortTheCountries = sortBy =>{
 export const getAllCountries = ()=>{
     return async (dispatch, getState)=>{
         try{
-            const data = await fetch("https://restcountries-v2.herokuapp.com/all").then(response=>response.json())
+            const data = await fetch("https://restcountries.com/v2/all").then(response=>response.json())
             dispatch(getSuccessContries(data))
         }catch(error){
             dispatch(sendError(error))
@@ -63,7 +63,7 @@ export const getAllCountries = ()=>{
 export const getOneCountry = (countryName)=>{
     return async (dispatch, getState)=>{
         try{
-            const data = await fetch(`https://restcountries-v2.herokuapp.com/country/${countryName}`).then(response=>response.json())
+            const data = await fetch(`https://restcountries.com/v2/name/${countryName}`).then(response=>response.json())
             dispatch(getSuccessContry(data))
         }catch(error){
             dispatch(sendError(error))
