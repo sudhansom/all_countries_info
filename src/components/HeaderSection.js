@@ -18,7 +18,7 @@ function HeaderSection() {
                 <Topography variant="h2">
                 DATA MAKES US POWERFUL
                 </Topography>
-                <Topography variant="body1">find all the countries info you need...</Topography>   
+                <Topography variant="body1">find all the countries' info you need...</Topography>   
             </div>
             <div>
                 <HeadBar />

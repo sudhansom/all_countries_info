@@ -4,8 +4,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import { selectTheme, sortTheCountries} from '../redux/action';
 import logo from "../images/home.png"
 import cartIcon from "../images/cart.png"
-import fullmoon from "../images/fullmoon.png"
-import darkmoon from "../images/darkmoon.png"
+import {Button, Dialog, DialogTitle} from "@material-ui/core"
+import TablContainr from './dynamicTable/TablContainr';
 
 function Navbar() {
     const [input, setInput] = useState('')
@@ -21,6 +21,15 @@ function Navbar() {
             e.preventDefault()
             dispatch(sortTheCountries(e.target.value))
         }
+        const [open, setOpen]=useState(false)
+    const closeDialog = ()=>{
+        setOpen(false)
+    }
+    const openDialog =()=>{
+        console.log('clicket.....')
+        setOpen(true)
+    }
+    
     return (
         <div className="navbar">
             <div >
@@ -29,11 +38,18 @@ function Navbar() {
                 </Link>
             </div>
             <div  className="cartImage1">
-                <Link  to={"/cart"}>
+                <div  onClick={()=>openDialog()}>
                 <img className="homeIcon" src={cartIcon} alt="cart icon"></img>
                 <span><sup className="cartValue">{total}</sup></span>
-                </Link>
+                </div>
             </div>
+            <Dialog open={open} onClose={closeDialog}>
+                <DialogTitle style={{background:"lightblue", color:"white"}}>Your favorite Countires</DialogTitle>
+                <TablContainr select={2} />
+                <div style={{display:"flex"}}>
+                    <Button onClick={closeDialog} variant="contained" style={{ background:"green", color:"white" , width:"100%"}}>Checkout</Button>
+                </div>
+            </Dialog>
         </div>
         
     )

@@ -4,10 +4,8 @@ import useCountries from './custom-hooks/useCountries'
 import Navbar from './components/Navbar';
 import HeaderSection from './components/HeaderSection';
 import TablContainr from './components/dynamicTable/TablContainr';
-import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import {Switch, Route} from 'react-router-dom';
-import CartPage from './pages/CartPage';
 import {useSelector} from 'react-redux';
 
 function App() { 
@@ -34,9 +32,7 @@ function App() {
             <Route exact path="/country/:countryName">
                 <CountryPage />
             </Route>
-            <Route exact path="/cart/">
-                <TablContainr select={2} />
-            </Route>
+            
         </Switch>
         
             
