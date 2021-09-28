@@ -118,9 +118,9 @@ export const disableAlert = ()=>{
     }
 }
 
-export const saveKeys = (text)=>{
+export const saveKeys = (arr)=>{
     return {
         type:"SAVE_KEYS",
-        payload:text,
+        payload:arr,
     }
 }
