@@ -37,7 +37,7 @@ function Navbar() {
                 <img className="homeIcon" src={logo} alt="logo"></img>
                 </Link>
             </div>
-            <div  className="cartImage1">
+            <div  className="cartImage">
                 <div  onClick={()=>openDialog()}>
                 <img className="homeIcon" src={cartIcon} alt="cart icon"></img>
                 <span><sup className="cartValue">{total}</sup></span>
@@ -47,7 +47,7 @@ function Navbar() {
                 <DialogTitle style={{background:"lightblue", color:"white"}}>Your favorite Countires</DialogTitle>
                 <TablContainr select={2} />
                 <div style={{display:"flex"}}>
-                    <Button onClick={closeDialog} variant="contained" style={{ background:"green", color:"white" , width:"100%"}}>Checkout</Button>
+                    <Button onClick={closeDialog} variant="contained" style={{ background:"green", color:"white" , width:"100%", cursor:"pointer"}}>Checkout</Button>
                 </div>
             </Dialog>
         </div>

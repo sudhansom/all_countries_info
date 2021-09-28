@@ -91,10 +91,7 @@
   align-items: center;
 }
 .cartImage {
-  height: 7vh;
-  width: 5vw;
-  border-radius: 1em;
-  background: url("./images/cart.png") no-repeat center/cover;
+  cursor: pointer;
 }
 .theme:hover {
   cursor: pointer;
