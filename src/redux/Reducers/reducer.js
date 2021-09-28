@@ -7,7 +7,7 @@ const defaultState ={
     filterCountries:[],
     searchActive:false,
     alreadyAdded:false,
-    colNames:[],
+    colNames:['flag', 'name', 'nativeName', 'region', 'population', 'select'],
 }
 
 const reducer = (state=defaultState, action)=>{

@@ -17,9 +17,11 @@ storeFactory().subscribe(()=>{
     const cart = currentState.reducer.cart
     const total = currentState.reducer.total
     const theme = currentState.reducerTheme.theme
+    const colNames = currentState.reducer.colNames
     localStorage.setItem('cart',JSON.stringify(cart))
     localStorage.setItem('total',JSON.stringify(total))
     localStorage.setItem('theme',JSON.stringify(theme))
+    localStorage.setItem('colNames',JSON.stringify(colNames))
 
     return storeFactory
 })

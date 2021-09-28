@@ -23,6 +23,10 @@
 .moon:hover {
   cursor: pointer;
 }
+.customize_moon {
+  width: 20vw;
+  display: flex;
+}
 .flagIcon {
   width: 3em;
   cursor: pointer;

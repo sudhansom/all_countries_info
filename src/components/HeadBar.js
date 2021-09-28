@@ -8,7 +8,7 @@ import fullmoon from "../images/fullmoon.png"
 import darkmoon from "../images/darkmoon.png"
 import TextField from '@material-ui/core/TextField';
 import { Button, Dialog, DialogTitle, Checkbox } from '@material-ui/core';
-import { Label } from '@material-ui/icons';
+import { FormControlLabel } from '@material-ui/core';
 
 
 function HeadBar() {
@@ -53,33 +53,44 @@ function HeadBar() {
         setColNames([...colNames, e.target.value])
     }
     const saveColNames = ()=>{
-        dispatch(saveKeys(colNames))
+        dispatch(saveKeys([...colNames, 'select']))
         setColNames([])
     }
    
     return (
         <div className="headbar">
-            <div>
-                <Button onClick={()=>openDialog()} variant="text">Customize Table</Button>
-                <Dialog open={open} onClose={closeDialog}>
-                    <DialogTitle>Select Column Names</DialogTitle>
-                    {
-                        key.map(elem=>{return (<Checkbox label={elem} value={elem} onChange={handleChange}><Label>{elem}</Label></Checkbox>)})
-                    }
-                    
-                    
-                    <Button onClick={saveColNames}>save</Button>
-                </Dialog>
-            </div>
-
-            <div >
+            <div className="customize_moon">
                 <div>
-                <Link  to={"/"}>
-                    <img className="moon" width="45px" height="45px" src={fullmoon} alt="logo"></img>
-                </Link>
-                <Link  to={"/"}>
-                    <img className="moon"  width="45px" height="45px" src={darkmoon} alt="logo"></img>
-                </Link>
+                    <Button onClick={()=>openDialog()} variant="text">Customize Table</Button>
+                    <Dialog open={open} onClose={closeDialog}>
+                        <DialogTitle style={{background:"lightblue"}}>Select Column Names</DialogTitle>
+                        {
+                            key.map(elem=>{
+                                return (
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox onClick={handleChange} style={{marginLeft:"30px"}}
+                                                name={elem}
+                                                value={elem}
+                                            />
+                                        }
+                                        label={elem}/>
+                                )
+                            })
+                        }
+                        <Button style={{backgroundColor:"green", color:"white"}} onClick={saveColNames}>save</Button>
+                    </Dialog>
+                </div>
+
+                <div >
+                    <div>
+                    <Link  to={"/"}>
+                        <img className="moon" width="45px" height="45px" src={fullmoon} alt="logo"></img>
+                    </Link>
+                    <Link  to={"/"}>
+                        <img className="moon"  width="45px" height="45px" src={darkmoon} alt="logo"></img>
+                    </Link>
+                    </div>
                 </div>
             </div>
         

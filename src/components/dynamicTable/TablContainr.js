@@ -16,8 +16,8 @@ function TablContainr({select}) {
     
     const cart = useSelector(state=>state.reducer.cart)
     const total = useSelector(state=>state.reducer.total)
-    const column = ['flag', 'name', 'nativeName', 'region', 'population', 'select']
-    
+    const column = useSelector(state=>state.reducer.colNames)
+    console.log('my Column:', column)
     const addToCart = (country)=>{
       dispatch(saveCountryToCart(country))
       localStorage.setItem('cart', JSON.stringify(cart))
@@ -26,14 +26,87 @@ function TablContainr({select}) {
   const deleteCountry = (country)=>{
         dispatch(removeCountry(country))
     }
+    let columns = []
 
-    const columns = column.map(item=>{
-        return {
+ if(column.length>0){
+     try{
+        columns = column.map(item=>{
+            return {
             label:item.toUpperCase(),
             renderContent:(items)=>{
                 switch(item){
+                    case "topLevelDomain":
+                        if(items[item]){
+                            return (<p>{items[item][0]}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "callingCodes":
+                        if(items[item]){
+                            return (<p>{items[item][0]}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "altSpellings":
+                        if(items[item]){
+                            return (<p>{items[item][0]}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "latlng":
+                        if(items[item]){
+                            return (<p>{items[item][0]}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "timeZones":
+                        if(items[item]){
+                            return (<p>{items[item][0]}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "borders":
+                        if(items[item]){
+                            return (<p>{items[item][0]}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "flags":
+                        if(items[item]){
+                            return (<p>{items[item]['svg']}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "currencies":
+                        if(items[item]){
+                            return (<p>{items[item][0]['code']}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "languages":
+                        if(items[item]){
+                            return (<p>{items[item][0]['name']}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "translations":
+                        if(items[item]){
+                            return (<p>{items[item]['br']}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
+                    case "regionalBlocs":
+                        if(items[item]){
+                            return (<p>{items[item][0]['acronym']}</p>)
+                        }else{
+                            return <p>loading...</p>
+                        }
                     case "flag":
-                        return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
+                        if(items[item]){
+                            return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
+                        }else{
+                            return <p>loading...</p>
+                        }
                     case "name":
                         return <p><Link to={`/country/${items[item]}`}>{items[item]}</Link></p>
                         case "select":
@@ -43,7 +116,10 @@ function TablContainr({select}) {
                 }
             }
         }
-    })
+    })}catch{
+        console.log('waiting....')
+    }
+ }
     const cartColumn = ['flag', 'name', 'area', 'delete']
     const cartColumns = cartColumn.map(item=>{
         return {
@@ -51,7 +127,7 @@ function TablContainr({select}) {
             renderContent:(items)=>{
                 switch(item){
                     case "flag":
-                        return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
+                        return (<img height="50px" width="65px" src={items['flag']} alt="no image flag"></img>)
                     case "delete":
                         return (<Button variant="outlined"  color="secondary" startIcon={<DeleteIcon/>} onClick={()=>{deleteCountry(items['name'])}}>Delete</Button>)
                     default:
