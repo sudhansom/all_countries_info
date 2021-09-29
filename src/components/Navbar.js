@@ -11,6 +11,7 @@ function Navbar() {
     const [input, setInput] = useState('')
     const total = useSelector(state=>state.reducer.total)
     const countries = useSelector(state=>state.reducer.countries)
+    const theme = useSelector(state=>state.reducerTheme.theme)
     
     const dispatch = useDispatch()
     
@@ -29,7 +30,12 @@ function Navbar() {
         console.log('clicket.....')
         setOpen(true)
     }
-    
+    //stylings...
+    const buttonDisplay = {display:"flex"};
+    const buttonStyles = { background:"green", color:"white" , width:"100%", cursor:"pointer"}
+    const dialogHead = {background:"lightblue"}
+    //const bgColor = {background:theme}
+
     return (
         <div className="navbar">
             <div >
@@ -43,11 +49,11 @@ function Navbar() {
                 <span><sup className="cartValue">{total}</sup></span>
                 </div>
             </div>
-            <Dialog open={open} onClose={closeDialog}>
-                <DialogTitle style={{background:"lightblue"}}>Your favorite Countires</DialogTitle>
-                <TablContainr select={2} />
-                <div style={{display:"flex"}}>
-                    <Button onClick={closeDialog} variant="contained" style={{ background:"green", color:"white" , width:"100%", cursor:"pointer"}}>Checkout</Button>
+            <Dialog open={open} onClose={closeDialog} >
+                <DialogTitle style={dialogHead}>Your favorite Countires</DialogTitle>
+                <TablContainr select={2}  />
+                <div style={buttonDisplay}>
+                    <Button onClick={closeDialog} variant="contained" style={buttonStyles}>Checkout</Button>
                 </div>
             </Dialog>
         </div>

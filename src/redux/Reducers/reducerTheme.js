@@ -7,12 +7,12 @@ const reducerTheme = (state=defaultTheme, action)=>{
     case "SELECT_THEME":
     const new_theme = "#" + action.payload
     return {
+      ...state,
       theme: new_theme
     }
   default:
-    return {
-      state
-    }
+    return state
+  
   }
 }
 export default reducerTheme

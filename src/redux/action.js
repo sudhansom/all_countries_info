@@ -21,9 +21,7 @@ export const saveCountryToCart = (country)=>{
             currentCart = [...currentCart, {name:country.name,flag:country.flag, area:country.area}]
             currentTotal += 1;
         }
-        //localStorage.setItem('cart', JSON.stringify(currentCart))
-        //localStorage.setItem('total', JSON.stringify(currentTotal))
-        
+      
         dispatch(insertCountryToCart(currentCart, currentTotal))
     }
 }   

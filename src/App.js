@@ -15,14 +15,15 @@ function App() {
   const total = useSelector(state=>state.reducer.total)
   const colNames = useSelector(state=>state.reducer.colNames)
   const theme = useSelector(state=>state.reducerTheme.theme)
-  localStorage.setItem('theme', theme)
+  if(theme){localStorage.setItem('theme', theme)}
   localStorage.setItem('cart', JSON.stringify(cart))
   localStorage.setItem('total', JSON.stringify(total))
   localStorage.setItem('colNames', JSON.stringify(colNames))
   console.log('cart:- ', cart)
   const colr = theme;
+  const styles = {backgroundColor:colr}
 
-    return <div className='App' style={{backgroundColor:colr}}>
+    return <div className='App' style={styles}>
         <Switch>
             <Route exact path="/">
                 <HeaderSection />

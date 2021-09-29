@@ -17,7 +17,7 @@ function TablContainr({select}) {
     const cart = useSelector(state=>state.reducer.cart)
     const total = useSelector(state=>state.reducer.total)
     const column = useSelector(state=>state.reducer.colNames)
-    console.log('my Column:', column)
+   
     const addToCart = (country)=>{
       dispatch(saveCountryToCart(country))
       localStorage.setItem('cart', JSON.stringify(cart))

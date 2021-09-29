@@ -62,6 +62,10 @@ function HeadBar() {
         setSlider(value)
         dispatch(selectTheme(hexString))
     }
+    //stylings...
+    const buttonColor = {backgroundColor:"green", color:"white"}
+    const dialogTitle = {background:"lightblue"}
+    const checkBoxMargin = {marginLeft:"30px"}
    
     return (
         <div className="headbar">
@@ -69,13 +73,13 @@ function HeadBar() {
                 <div>
                     <Button onClick={()=>openDialog()} variant="text">Customize Table</Button>
                     <Dialog open={open} onClose={closeDialog}>
-                        <DialogTitle style={{background:"lightblue"}}>Select Column Names</DialogTitle>
+                        <DialogTitle style={dialogTitle}>Select Column Names</DialogTitle>
                         {
                             key.map(elem=>{
                                 return (
                                     <FormControlLabel
                                         control={
-                                            <Checkbox onClick={handleChange} style={{marginLeft:"30px"}}
+                                            <Checkbox onClick={handleChange} style={checkBoxMargin}
                                                 name={elem}
                                                 value={elem}
                                             />
@@ -84,7 +88,7 @@ function HeadBar() {
                                 )
                             })
                         }
-                        <Button style={{backgroundColor:"green", color:"white"}} onClick={saveColNames}>save</Button>
+                        <Button style={buttonColor} onClick={saveColNames}>save</Button>
                     </Dialog>
                 </div>
 
@@ -93,6 +97,7 @@ function HeadBar() {
                     <Link  to={"/"}>
                         <img className="moon" width="45px" height="45px" src={fullmoon} alt="logo"></img>
                     </Link>
+                    <span>   </span>
                     <Link  to={"/"}>
                         <img className="moon"  width="45px" height="45px" src={darkmoon} alt="logo"></img>
                     </Link>
