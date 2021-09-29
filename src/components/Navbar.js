@@ -44,7 +44,7 @@ function Navbar() {
                 </div>
             </div>
             <Dialog open={open} onClose={closeDialog}>
-                <DialogTitle style={{background:"lightblue", color:"white"}}>Your favorite Countires</DialogTitle>
+                <DialogTitle style={{background:"lightblue"}}>Your favorite Countires</DialogTitle>
                 <TablContainr select={2} />
                 <div style={{display:"flex"}}>
                     <Button onClick={closeDialog} variant="contained" style={{ background:"green", color:"white" , width:"100%", cursor:"pointer"}}>Checkout</Button>

@@ -48,7 +48,7 @@ function DataTable({items, columns}) {
         </TableContainer>
     )
     }else{
-        return <p>Loading...</p>
+        return <p>Nothing to display...</p>
     }
 }
 

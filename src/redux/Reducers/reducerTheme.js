@@ -1,29 +1,18 @@
 const defaultTheme = {
-  theme:[],
+  theme:'#ffffff',
 }
 
 const reducerTheme = (state=defaultTheme, action)=>{
   switch(action.type){
     case "SELECT_THEME":
-      let temp = []
-      if(action.payload==='Green'){
-            console.log("i am inside theme now.....")
-            temp = ['#bff5c6','#dcf7e0']
-      }
-      else if(action.payload==='Yellow'){
-            temp = ['#f0eec9','#e6edbe']
-      }
-      else if(action.payload==='Red'){
-            temp = ['#f7a1a7','#f2d5d7']
-      }
-      return{
-          ...state,
-          theme:temp,
-      }
-    default:
-      return {
-        ...state
-      }
+    const new_theme = "#" + action.payload
+    return {
+      theme: new_theme
+    }
+  default:
+    return {
+      state
+    }
   }
 }
 export default reducerTheme

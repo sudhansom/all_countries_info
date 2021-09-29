@@ -19,7 +19,7 @@ export const preloadedState = {
         colNames:localStorage.getItem('colNames')?JSON.parse(localStorage.getItem('colNames')):['flag', 'name', 'nativeName', 'region', 'population', 'select'],
     },
     reducerTheme:{
-        theme: localStorage.getItem('theme')?JSON.parse(localStorage.getItem('theme')):['#b6f1f2','#d7f4f5'],
+        theme: localStorage.getItem('theme')?localStorage.getItem('theme'):'#ffffff',
     }
 }
 

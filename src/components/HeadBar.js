@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { saveKeys, selectTheme, sortTheCountries, filterSearchCountries} from '../redux/action';
-import logo from "../images/home.png"
-import cartIcon from "../images/cart.png"
-import fullmoon from "../images/fullmoon.png"
-import darkmoon from "../images/darkmoon.png"
 import TextField from '@material-ui/core/TextField';
 import { Button, Dialog, DialogTitle, Checkbox } from '@material-ui/core';
 import { FormControlLabel } from '@material-ui/core';
+import Slider from "@material-ui/core/Slider";
+
+import fullmoon from "../images/fullmoon.png"
+import darkmoon from "../images/darkmoon.png"
+import { saveKeys, selectTheme, sortTheCountries, filterSearchCountries} from '../redux/action';
 
 
 function HeadBar() {
+    const [slider, setSlider]=useState(0)
     const [input, setInput] = useState('')
     const [colNames, setColNames]=useState([])
     const total = useSelector(state=>state.reducer.total)
@@ -25,9 +26,6 @@ function HeadBar() {
     console.log('key-value:', key)
     const dispatch = useDispatch()
     
-    const handleTheme = (e)=>{
-            dispatch(selectTheme(e.target.value))
-        }
     const sortCountries = (e)=>{
             e.preventDefault()
             dispatch(sortTheCountries(e.target.value))
@@ -55,6 +53,14 @@ function HeadBar() {
     const saveColNames = ()=>{
         dispatch(saveKeys([...colNames, 'select']))
         setColNames([])
+        closeDialog()
+    }
+    const displayTheme =(e,value)=>{
+        let number = (16777215 - 100000 * value)
+        const hexString = number.toString(16);
+        console.log('new hex value:', hexString)
+        setSlider(value)
+        dispatch(selectTheme(hexString))
     }
    
     return (
@@ -91,6 +97,10 @@ function HeadBar() {
                         <img className="moon"  width="45px" height="45px" src={darkmoon} alt="logo"></img>
                     </Link>
                     </div>
+                    <form>
+                        <Slider value={slider} onChange={displayTheme} marks />
+                    </form>
+ 
                 </div>
             </div>
         

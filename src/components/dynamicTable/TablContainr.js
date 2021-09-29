@@ -8,7 +8,6 @@ import {saveCountryToCart, removeCountry} from '../../redux/action'
 import { Link } from 'react-router-dom';
 
 function TablContainr({select}) {
-    const [on, setOn] = useState(false)
     const dispatch = useDispatch()
     const allData = useSelector(state => state.reducer.countries)
     const filterData = useSelector(state => state.reducer.filterCountries)
@@ -23,9 +22,6 @@ function TablContainr({select}) {
       dispatch(saveCountryToCart(country))
       localStorage.setItem('cart', JSON.stringify(cart))
       localStorage.setItem('total',total)  
-  }
-  const disableButton = ()=>{
-        setOn(true)
   }
   const deleteCountry = (country)=>{
         dispatch(removeCountry(country))
@@ -114,7 +110,7 @@ function TablContainr({select}) {
                     case "name":
                         return <p><Link to={`/country/${items[item]}`}>{items[item]}</Link></p>
                         case "select":
-                        return (<Button variant="outlined" startIcon={<SaveIcon/>} disabled={on} onClick={()=>{addToCart(items)}}>Like</Button>)
+                        return (<Button variant="outlined" color="primary" startIcon={<SaveIcon/>} disabled={false} onClick={()=>{addToCart(items)}}>Like</Button>)
                     default:
                         return <p>{items[item]}</p>
                 }
