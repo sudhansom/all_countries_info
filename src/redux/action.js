@@ -11,8 +11,8 @@ export const insertCountryToCart = (updateCart, currentTotal)=>{
 } 
 export const saveCountryToCart = (country)=>{
     return (dispatch, getState)=>{
-        let currentCart= getState().reducer.cart;
-        let currentTotal = getState().reducer.total;
+        let currentCart= getState().reducerCountries.cart;
+        let currentTotal = getState().reducerCountries.total;
             
         const existCountry = currentCart.find(item=>item.name===country.name)
         if(existCountry){

@@ -1,9 +1,9 @@
 import {createStore, applyMiddleware} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import allReducers from '../redux/Reducers/combineReducer';
-import reducer from './Reducers/reducer';
-import { preloadedState } from '../redux/Reducers/combineReducer';
+import allReducers from '../redux/Reducers';
+import reducerCountries from './Reducers/reducerCountries';
+import { preloadedState } from '../redux/Reducers';
 
 const storeFactory = ()=>{
     const middleware = [thunk]
@@ -14,10 +14,10 @@ const storeFactory = ()=>{
 
 storeFactory().subscribe(()=>{
     const currentState = storeFactory().getState()
-    const cart = currentState.reducer.cart
-    const total = currentState.reducer.total
+    const cart = currentState.reducerCountries.cart
+    const total = currentState.reducerCountries.total
     const theme = currentState.reducerTheme.theme
-    const colNames = currentState.reducer.colNames
+    const colNames = currentState.reducerCountries.colNames
     localStorage.setItem('cart',JSON.stringify(cart))
     localStorage.setItem('total',JSON.stringify(total))
     localStorage.setItem('theme',theme)

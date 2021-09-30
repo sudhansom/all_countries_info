@@ -1,9 +1,9 @@
-import reducer from "./reducer";
+import reducerCountries from "./reducerCountries";
 import reducerTheme from "./reducerTheme";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
-    reducer,
+    reducerCountries,
     reducerTheme,
 })
 export const preloadedState = {

@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom';
 
 function TablContainr({select}) {
     const dispatch = useDispatch()
-    const allData = useSelector(state => state.reducer.countries)
-    const filterData = useSelector(state => state.reducer.filterCountries)
-    const searchActive = useSelector(state => state.reducer.searchActive)
+    const allData = useSelector(state => state.reducerCountries.countries)
+    const filterData = useSelector(state => state.reducerCountries.filterCountries)
+    const searchActive = useSelector(state => state.reducerCountries.searchActive)
     let items = searchActive ? filterData : allData
     
-    const cart = useSelector(state=>state.reducer.cart)
-    const total = useSelector(state=>state.reducer.total)
-    const column = useSelector(state=>state.reducer.colNames)
+    const cart = useSelector(state=>state.reducerCountries.cart)
+    const total = useSelector(state=>state.reducerCountries.total)
+    const column = useSelector(state=>state.reducerCountries.colNames)
    
     const addToCart = (country)=>{
       dispatch(saveCountryToCart(country))

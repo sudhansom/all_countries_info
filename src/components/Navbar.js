@@ -9,8 +9,8 @@ import TablContainr from './dynamicTable/TablContainr';
 
 function Navbar() {
     const [input, setInput] = useState('')
-    const total = useSelector(state=>state.reducer.total)
-    const countries = useSelector(state=>state.reducer.countries)
+    const total = useSelector(state=>state.reducerCountries.total)
+    const countries = useSelector(state=>state.reducerCountries.countries)
     const theme = useSelector(state=>state.reducerTheme.theme)
     
     const dispatch = useDispatch()
