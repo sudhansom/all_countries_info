@@ -7,9 +7,8 @@ const allReducers = combineReducers({
     reducerTheme,
 })
 export const preloadedState = {
-    reducer:{
+    reducerCountries:{
         cart:localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[],
-        total:localStorage.getItem('total')?Number(localStorage.getItem('total')):0,
         countries:[],
         country:{},
         err:'something wrong went on...',

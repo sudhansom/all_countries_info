@@ -22,7 +22,6 @@ function HeadBar() {
     }else{
         key=[]
     }
-    console.log('key-value:', key)
     const dispatch = useDispatch()
     
     const sortCountries = (e)=>{

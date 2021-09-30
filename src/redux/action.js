@@ -1,28 +1,21 @@
 //import useCountries from "../custom-hooks/useCountries"
 
-export const insertCountryToCart = (updateCart, currentTotal)=>{
+export const insertCountryToCart = (updateCart)=>{
     return{
         type:"INSERT_COUNTRY",
-        payload: {
-            toCart:updateCart,
-            currentTotal: currentTotal
-        }
+        payload: updateCart,
     }
 } 
 export const saveCountryToCart = (country)=>{
     return (dispatch, getState)=>{
         let currentCart= getState().reducerCountries.cart;
-        let currentTotal = getState().reducerCountries.total;
-            
         const existCountry = currentCart.find(item=>item.name===country.name)
         if(existCountry){
             console.log("country already exists")
         }else{
-            currentCart = [...currentCart, {name:country.name,flag:country.flag, area:country.area}]
-            currentTotal += 1;
+            currentCart = [...currentCart, {name:country.name,flag:country.flag, area:country.area}]  
         }
-      
-        dispatch(insertCountryToCart(currentCart, currentTotal))
+        dispatch(insertCountryToCart(currentCart))
     }
 }   
 

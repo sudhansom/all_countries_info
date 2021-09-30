@@ -14,14 +14,13 @@ const reducer = (state=defaultState, action)=>{
         case 'INSERT_COUNTRY':
             return {
                 ...state,
-                cart:[...action.payload['toCart'] ],
+                cart:action.payload,
             }
         case "REMOVE_COUNTRY":
             const filteredCountries = state.cart.filter(country=>country.name!==action.payload)
             return {
                 ...state,
                 cart:filteredCountries,
-                total: state.total - 1,
             }
 
         case "SUCCESS_COUNTRIES":

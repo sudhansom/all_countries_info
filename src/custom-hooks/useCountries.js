@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const useCountries = ()=>{
     const dispatch = useDispatch()
-    const err = useSelector(state=>state.err)
-    const data = useSelector(state=>state.countries)
+    const err = useSelector(state=>state.reducerCountries.err)
+    const data = useSelector(state=>state.reducerCountries.countries)
     useEffect(()=>{
         dispatch(getAllCountries())
     }, [dispatch])

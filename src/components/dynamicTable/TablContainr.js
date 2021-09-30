@@ -21,7 +21,7 @@ function TablContainr({select}) {
     const addToCart = (country)=>{
       dispatch(saveCountryToCart(country))
       localStorage.setItem('cart', JSON.stringify(cart))
-      localStorage.setItem('total',total)  
+        
   }
   const deleteCountry = (country)=>{
         dispatch(removeCountry(country))

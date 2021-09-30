@@ -2,7 +2,6 @@ import {createStore, applyMiddleware} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import allReducers from '../redux/Reducers';
-import reducerCountries from './Reducers/reducerCountries';
 import { preloadedState } from '../redux/Reducers';
 
 const storeFactory = ()=>{
