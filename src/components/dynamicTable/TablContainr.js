@@ -35,37 +35,7 @@ function TablContainr({select}) {
             label:item.toUpperCase(),
             renderContent:(items)=>{
                 switch(item){
-                    case "topLevelDomain":
-                        if(items[item]){
-                            return (<p>{items[item][0]}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "callingCodes":
-                        if(items[item]){
-                            return (<p>{items[item][0]}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "altSpellings":
-                        if(items[item]){
-                            return (<p>{items[item][0]}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "latlng":
-                        if(items[item]){
-                            return (<p>{items[item][0]}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "timeZones":
-                        if(items[item]){
-                            return (<p>{items[item][0]}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "borders":
+                    case "topLevelDomain" || "callingCodes" || "altSpellings" || "latlng" || "timeZones" || "borders" ||"currencies":
                         if(items[item]){
                             return (<p>{items[item][0]}</p>)
                         }else{
@@ -74,12 +44,6 @@ function TablContainr({select}) {
                     case "flags":
                         if(items[item]){
                             return (<p>{items[item]['svg']}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "currencies":
-                        if(items[item]){
-                            return (<p>{items[item][0]['code']}</p>)
                         }else{
                             return <p>loading...</p>
                         }
