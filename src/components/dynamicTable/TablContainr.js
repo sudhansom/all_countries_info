@@ -15,7 +15,7 @@ function TablContainr({select}) {
     let items = searchActive ? filterData : allData
     
     const cart = useSelector(state=>state.reducerCountries.cart)
-    const total = useSelector(state=>state.reducerCountries.total)
+    const total = cart.length
     const column = useSelector(state=>state.reducerCountries.colNames)
    
     const addToCart = (country)=>{

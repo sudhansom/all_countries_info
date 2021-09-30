@@ -12,12 +12,11 @@ function App() {
   
   const [error, countries] = useCountries();  
   const cart = useSelector(state=>state.reducerCountries.cart)
-  const total = useSelector(state=>state.reducerCountries.total)
+  const total = cart.length
   const colNames = useSelector(state=>state.reducerCountries.colNames)
   const theme = useSelector(state=>state.reducerTheme.theme)
   if(theme){localStorage.setItem('theme', theme)}
   localStorage.setItem('cart', JSON.stringify(cart))
-  localStorage.setItem('total', JSON.stringify(total))
   localStorage.setItem('colNames', JSON.stringify(colNames))
   console.log('cart:- ', cart)
   const colr = theme;

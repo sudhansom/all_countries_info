@@ -1,28 +1,16 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
-import { selectTheme, sortTheCountries} from '../redux/action';
+import {useSelector} from 'react-redux';
 import logo from "../images/home.png"
 import cartIcon from "../images/cart.png"
 import {Button, Dialog, DialogTitle} from "@material-ui/core"
 import TablContainr from './dynamicTable/TablContainr';
 
 function Navbar() {
-    const [input, setInput] = useState('')
-    const total = useSelector(state=>state.reducerCountries.total)
-    const countries = useSelector(state=>state.reducerCountries.countries)
-    const theme = useSelector(state=>state.reducerTheme.theme)
+    const cart = useSelector(state=>state.reducerCountries.cart)
+    const total = cart.length
     
-    const dispatch = useDispatch()
-    
-    const handleTheme = (e)=>{
-            dispatch(selectTheme(e.target.value))
-        }
-    const sortCountries = (e)=>{
-            e.preventDefault()
-            dispatch(sortTheCountries(e.target.value))
-        }
-        const [open, setOpen]=useState(false)
+    const [open, setOpen]=useState(false)
     const closeDialog = ()=>{
         setOpen(false)
     }

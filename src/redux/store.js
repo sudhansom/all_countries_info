@@ -15,11 +15,9 @@ const storeFactory = ()=>{
 storeFactory().subscribe(()=>{
     const currentState = storeFactory().getState()
     const cart = currentState.reducerCountries.cart
-    const total = currentState.reducerCountries.total
     const theme = currentState.reducerTheme.theme
     const colNames = currentState.reducerCountries.colNames
     localStorage.setItem('cart',JSON.stringify(cart))
-    localStorage.setItem('total',JSON.stringify(total))
     localStorage.setItem('theme',theme)
     localStorage.setItem('colNames',JSON.stringify(colNames))
 

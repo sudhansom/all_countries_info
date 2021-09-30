@@ -1,6 +1,5 @@
 const defaultState ={
     cart:[],
-    total: 0,
     countries:[],
     country:{},
     err:'something wrong went on...',
@@ -15,8 +14,7 @@ const reducer = (state=defaultState, action)=>{
         case 'INSERT_COUNTRY':
             return {
                 ...state,
-                cart:[...action.payload['toCart'], ],
-                total:action.payload['currentTotal'],
+                cart:[...action.payload['toCart'] ],
             }
         case "REMOVE_COUNTRY":
             const filteredCountries = state.cart.filter(country=>country.name!==action.payload)

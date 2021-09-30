@@ -5,8 +5,8 @@ import { getOneCountry } from "../redux/action";
 import { useParams } from "react-router-dom";
 const useCountry = ()=>{
     const {countryName} = useParams()
-    const error = useSelector(state=>state.reducer.err)
-    const data = useSelector(state=>state.reducer.country)
+    const error = useSelector(state=>state.reducerCountries.err)
+    const data = useSelector(state=>state.reducerCountries.country)
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(getOneCountry(countryName))

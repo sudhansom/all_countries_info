@@ -15,7 +15,6 @@ function HeadBar() {
     const [slider, setSlider]=useState(0)
     const [input, setInput] = useState('')
     const [colNames, setColNames]=useState([])
-    const total = useSelector(state=>state.reducerCountries.total)
     const countries = useSelector(state=>state.reducerCountries.countries)
     let key={}
     if(countries.length>0){
