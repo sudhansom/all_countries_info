@@ -9,7 +9,7 @@ const defaultState ={
     colNames:['flag', 'name', 'nativeName', 'region', 'population', 'select'],
 }
 
-const reducer = (state=defaultState, action)=>{
+const reducerCountries = (state=defaultState, action)=>{
     switch(action.type){
         case 'INSERT_COUNTRY':
             return {
@@ -77,4 +77,4 @@ const reducer = (state=defaultState, action)=>{
     }
     
 }
-export default reducer
+export default reducerCountries
