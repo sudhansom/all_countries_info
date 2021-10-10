@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import TextField from '@material-ui/core/TextField';
@@ -32,9 +32,22 @@ function HeadBar() {
     const searchField = (text)=>{
         setInput(text)
     }
-    const filterCountries = (e, text)=>{
-        console.log('text value',text)
-        e.preventDefault()
+    useEffect(()=>{
+        let timer;
+        const search = async (input)=>{
+            await new Promise(resolve => {
+                timer = setTimeout(resolve,1000)
+            })
+            filterCountries(input)
+            console.log('changed input is ...',input)
+        }
+        search(input)
+        return ()=>{
+            clearTimeout(timer)
+        }
+    }, [input])
+
+    const filterCountries = (text)=>{
         dispatch(filterSearchCountries(countries.filter(elem=>elem.name.toLowerCase().startsWith(text)), text))
     }
     const [open, setOpen]=useState(false)
@@ -110,7 +123,7 @@ function HeadBar() {
             <div className="searchField">
                     <TextField 
                     variant="standard"
-                    type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value); filterCountries(e, e.target.value)}} />
+                    type="text" value={input} placeholder="Search" onChange={(e)=>{searchField(e.target.value)}} />
                     
                 </div>
             <div>
