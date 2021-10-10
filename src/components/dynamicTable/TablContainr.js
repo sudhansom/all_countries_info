@@ -20,11 +20,38 @@ function TablContainr({select}) {
    
     const addToCart = (country)=>{
       dispatch(saveCountryToCart(country))
-      localStorage.setItem('cart', JSON.stringify(cart))
-        
+      localStorage.setItem('cart', JSON.stringify(cart))     
   }
   const deleteCountry = (country)=>{
         dispatch(removeCountry(country))
+    }
+    const display = (items, item)=>{
+        const value = items[item]
+        const typeOf = typeof value
+        if(item==="select"){
+            return (<Button variant="outlined" color="primary" startIcon={<SaveIcon/>} disabled={false} onClick={()=>{addToCart(items)}}>Like</Button>)
+        }
+        switch(typeOf){
+            case "string":
+                return <p>{value}</p>
+            case "number":
+                return <p>{value}</p>
+            case "object":
+                if(Array.isArray(value)){
+                    for (let key=0;key<value.length; key++){
+                        console.log(value[key])
+                        return display(value, key)
+                    }
+                    //return <p>array</p>
+                }else{
+                    Object.keys(value).map((key,index)=>{
+                        return display(value, key)})
+                    //return <p>object</p>
+                }
+            default:
+                return <p>none</p>
+                
+        }
     }
     let columns = []
 
@@ -33,52 +60,7 @@ function TablContainr({select}) {
         columns = column.map(item=>{
             return {
             label:item.toUpperCase(),
-            renderContent:(items)=>{
-                switch(item){
-                    case "topLevelDomain" || "callingCodes" || "altSpellings" || "latlng" || "timeZones" || "borders" ||"currencies":
-                        if(items[item]){
-                            return (<p>{items[item][0]}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "flags":
-                        if(items[item]){
-                            return (<p>{items[item]['svg']}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "languages":
-                        if(items[item]){
-                            return (<p>{items[item][0]['name']}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "translations":
-                        if(items[item]){
-                            return (<p>{items[item]['br']}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "regionalBlocs":
-                        if(items[item]){
-                            return (<p>{items[item][0]['acronym']}</p>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "flag":
-                        if(items[item]){
-                            return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
-                        }else{
-                            return <p>loading...</p>
-                        }
-                    case "name":
-                        return <p><Link to={`/country/${items[item]}`}>{items[item]}</Link></p>
-                        case "select":
-                        return (<Button variant="outlined" color="primary" startIcon={<SaveIcon/>} disabled={false} onClick={()=>{addToCart(items)}}>Like</Button>)
-                    default:
-                        return <p>{items[item]}</p>
-                }
-            }
+            renderContent:(items)=>{ return display(items, item)}
         }
     })}catch{
         console.log('waiting....')
