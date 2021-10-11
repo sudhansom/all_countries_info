@@ -32,7 +32,7 @@ function TablContainr({select}) {
             return (<Button variant="outlined" color="primary" startIcon={<SaveIcon/>} disabled={false} onClick={()=>{addToCart(items)}}>Like</Button>)
         }
         switch(typeOf){
-            case "string":
+            case "string": // "string" || "number":
                 return <p>{value}</p>
             case "number":
                 return <p>{value}</p>
