@@ -44,7 +44,6 @@ function TablContainr({select}) {
             case "object":
                 if(Array.isArray(value)){
                     let temp_arr = " "
-                    let a = ""
                     for (let key=0;key<value.length; key++){   
                         let typeIs = typeof value[key] 
                         if(typeIs==="object"){
