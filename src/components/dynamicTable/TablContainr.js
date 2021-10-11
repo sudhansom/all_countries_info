@@ -45,6 +45,7 @@ function TablContainr({select}) {
                     //return <p>array</p>
                 }else{
                     Object.keys(value).map((key,index)=>{
+                        console.log(value[key])
                         return display(value, key)})
                     //return <p>object</p>
                 }
