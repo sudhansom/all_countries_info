@@ -30,6 +30,11 @@ function TablContainr({select}) {
         const typeOf = typeof value
         if(item==="select"){
             return (<Button variant="outlined" color="primary" startIcon={<SaveIcon/>} disabled={false} onClick={()=>{addToCart(items)}}>Like</Button>)
+        }else if(item==="name"){
+            return <p><Link to={`/country/${items[item]}`}>{items[item]}</Link></p>
+        }
+        else if(item==="flag"){
+            return (<img height="50px" width="65px" src={items[item]} alt="no image flag"></img>)
         }
         switch(typeOf){
             case "string": // "string" || "number":
@@ -38,16 +43,25 @@ function TablContainr({select}) {
                 return <p>{value}</p>
             case "object":
                 if(Array.isArray(value)){
-                    for (let key=0;key<value.length; key++){
-                        console.log(value[key])
-                        return display(value, key)
+                    let temp_arr = " "
+                    let a = ""
+                    for (let key=0;key<value.length; key++){   
+                        let typeIs = typeof value[key] 
+                        if(typeIs==="object"){
+                            return display(value, key)
+                        }else{
+                            temp_arr = value.toString()
+                        }
+                        
                     }
+                    return <p>{temp_arr}</p>
                     //return <p>array</p>
                 }else{
+                    let temp_arr = " "
                     Object.keys(value).map((key,index)=>{
-                        console.log(value[key])
-                        return display(value, key)})
-                    //return <p>object</p>
+                        temp_arr += value[key] + ", "
+                        display(value, key)})
+                    return <p>{temp_arr}</p>
                 }
             default:
                 return <p>none</p>
