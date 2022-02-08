@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
@@ -6,6 +6,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import DataTable from "./Table";
 import { saveCountryToCart, removeCountry } from "../../redux/action";
 import { Link } from "react-router-dom";
+import { getAllCountries } from "../../redux/action";
 
 function TablContainr({ select }) {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function TablContainr({ select }) {
   const deleteCountry = (country) => {
     dispatch(removeCountry(country));
   };
+  useEffect(() => {
+    dispatch(getAllCountries());
+  }, [dispatch]);
   const display = (items, item) => {
     const value = items[item];
     const typeOf = typeof value;
@@ -54,12 +58,7 @@ function TablContainr({ select }) {
       );
     } else if (item === "flag") {
       return (
-        <img
-          height="50px"
-          width="65px"
-          src={items[item]}
-          alt="no image flag"
-        ></img>
+        <img height="50px" width="65px" src={items[item]} alt="no  flag"></img>
       );
     }
     switch (typeOf) {
@@ -85,6 +84,7 @@ function TablContainr({ select }) {
           Object.keys(value).map((key, index) => {
             temp_arr += value[key] + ", ";
             display(value, key);
+            return temp_arr;
           });
           return <p>{temp_arr}</p>;
         }
@@ -120,7 +120,7 @@ function TablContainr({ select }) {
                 height="50px"
                 width="65px"
                 src={items["flag"]}
-                alt="no image flag"
+                alt="no flag"
               ></img>
             );
           case "delete":
