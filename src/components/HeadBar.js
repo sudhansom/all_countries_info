@@ -44,21 +44,22 @@ function HeadBar() {
       )
     );
   };
+  filterCountries(input);
 
-  useEffect(() => {
-    let timer;
-    const search = async (input) => {
-      await new Promise((resolve) => {
-        timer = setTimeout(resolve, 1000);
-      });
-      filterCountries(input);
-      console.log("changed input is ...", input);
-    };
-    search(input);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [input]);
+  //   useEffect(() => {
+  //     let timer;
+  //     const search = async (input) => {
+  //       await new Promise((resolve) => {
+  //         timer = setTimeout(resolve, 1000);
+  //       });
+  //       filterCountries(input);
+  //       console.log("changed input is ...", input);
+  //     };
+  //     search(input);
+  //     return () => {
+  //       clearTimeout(timer);
+  //     };
+  //   }, [input]);
 
   const [open, setOpen] = useState(false);
   const closeDialog = () => {
