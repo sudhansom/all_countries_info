@@ -36,6 +36,15 @@ function HeadBar() {
   const searchField = (text) => {
     setInput(text);
   };
+  const filterCountries = (text) => {
+    dispatch(
+      filterSearchCountries(
+        countries.filter((elem) => elem.name.toLowerCase().startsWith(text)),
+        text
+      )
+    );
+  };
+
   useEffect(() => {
     let timer;
     const search = async (input) => {
@@ -51,14 +60,6 @@ function HeadBar() {
     };
   }, [input, filterCountries]);
 
-  const filterCountries = (text) => {
-    dispatch(
-      filterSearchCountries(
-        countries.filter((elem) => elem.name.toLowerCase().startsWith(text)),
-        text
-      )
-    );
-  };
   const [open, setOpen] = useState(false);
   const closeDialog = () => {
     setOpen(false);
