@@ -18,6 +18,7 @@ import {
 function HeadBar() {
   const [slider, setSlider] = useState(0);
   const [input, setInput] = useState("");
+  const [timer, setTimer] = useState(true);
   const [colNames, setColNames] = useState([]);
   const countries = useSelector((state) => state.reducerCountries.countries);
   let key = {};
@@ -37,12 +38,20 @@ function HeadBar() {
     setInput(text);
   };
   const filterCountries = (text) => {
-    dispatch(
-      filterSearchCountries(
-        countries.filter((elem) => elem.name.toLowerCase().startsWith(text)),
-        text
-      )
-    );
+    if (timer) {
+      setTimeout(() => {
+        dispatch(
+          filterSearchCountries(
+            countries.filter((elem) =>
+              elem.name.toLowerCase().startsWith(text)
+            ),
+            text
+          )
+        );
+        setTimer(true);
+      }, 1000);
+      setTimer(false);
+    }
   };
   filterCountries(input);
 
